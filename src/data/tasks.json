@@ -1,1 +1,27 @@
-[]
+[
+  {
+    "id": "overdue",
+    "label": "Overdue",
+    "count": 3,
+    "chevron": true
+  },
+  {
+    "id": "pending-manual",
+    "label": "Pending Manual",
+    "count": 10,
+    "chevron": true
+  },
+  {
+    "id": "pending-auto",
+    "label": "Pending Auto",
+    "count": 20,
+    "chevron": true,
+    "error": "1 error"
+  },
+  {
+    "id": "completed",
+    "label": "Completed",
+    "count": 8,
+    "chevron": false
+  }
+]

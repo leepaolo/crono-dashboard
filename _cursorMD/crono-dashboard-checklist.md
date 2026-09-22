@@ -55,9 +55,9 @@ Fatto. I componenti esportano una funzione che ritorna `null`. I JSON sono array
 
 ## 2. Tipi e dati mock
 
-- [ ] `src/types/index.ts` con i tipi di nav item, task, signal, metrica, step di onboarding, utente. Fatti nav item, trial, utente e signal. Mancano task, metrica, step.
+- [ ] `src/types/index.ts` con i tipi di nav item, task, signal, metrica, step di onboarding, utente. Fatti nav item, trial, utente, signal e task. Mancano metrica e step.
 - [x] `data/navItems.json`: Dashboard (attivo), Find New, Lists, Templates, Sequences, Tasks, Inbox (badge `24`), Deals, Analytics (chevron). Ogni item: icona, label, badge opzionale, flag attivo, flag espandibile.
-- [ ] `data/tasks.json`: Overdue `3` (rosa), Pending Manual `10` (giallo), Pending Auto `20` (azzurro, badge `1 error`), Completed `8` (verde). I primi tre hanno chevron; Completed no.
+- [x] `data/tasks.json`: Overdue `3` (rosa), Pending Manual `10` (giallo), Pending Auto `20` (azzurro, badge `1 error`), Completed `8` (verde). I primi tre hanno chevron; Completed no.
 - [ ] `data/metrics.json`: Contacts engaged `0/500`, Companies engaged `0/500`, Activities `1000/2000`, Meetings `20/30`, Deals `100/200`, Pipeline `€50K/100K`. Ogni metrica: icona, colore della progress bar, valore, target.
 - [x] `data/signals.json`: almeno le 5 righe visibili, con abbastanza item da far comparire lo scroll interno. Contatore iniziale derivato dalle righe non lette (nel mock è `12`).
 - [ ] `data/onboarding.json`: Integrations Setup `5 min`, Add new Contact `5 min`, Create your first sequence `10 min`, Add contacts to sequence `5 min`, Run your first task `10 min`.
@@ -138,8 +138,8 @@ Spec arrivate (in `@theme` di `src/index.css`):
 
 - [ ] `Welcome`: card bianca. Titolo `Welcome Alex,` in navy bold. Sottotitolo grigio: «Here's your performance overview where you can track your daily and monthly KPIs».
 - [ ] `Replies`: header con titolo `Replies` e link teal `Open inbox >`. Corpo su fondo menta: icona inbox in cerchio, numero `24` grande, stack di 4 avatar sovrapposti (Reddit, Amazon, McDonald's, marchio «M»).
-- [ ] `TodaysTasks`: titolo `Today's tasks`, poi 4 `TaskStatCard` in riga.
-- [ ] `TaskStatCard`: numero grande colorato, label, chevron opzionale, badge errore opzionale (`1 error` + triangolo sulla card Pending Auto). Sfondi: rosa, giallo, azzurro, verde.
+- [x] `TodaysTasks`: titolo `Today's tasks`, poi 4 `TaskStatCard` in riga.
+- [x] `TaskStatCard`: numero grande colorato, label, chevron opzionale, badge errore opzionale (`1 error` + triangolo sulla card Pending Auto). Sfondi: rosa, giallo, azzurro, verde.
 
 ## 6. Performance
 

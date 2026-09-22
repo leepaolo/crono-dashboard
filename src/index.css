@@ -11,6 +11,7 @@
   --color-muted: #7a8395;
   /* Stimati dallo screenshot, in attesa di spec. */
   --color-ink: #303346;
+  --color-navy: #010e27;
   --color-accent: #f9bb06;
   --color-trial: #fef3d2;
   --color-role-change: #8846dc;
@@ -20,6 +21,14 @@
   --color-insequenze-bg: #e9f8f8;
   --color-action-button: #1ebab2;
   --color-action-menu-border: #e6e9f2;
+  --color-task-overdue-bg: #ffe9e9;
+  --color-task-overdue: #ed4c5e;
+  --color-task-manual-bg: var(--color-trial);
+  --color-task-manual: #c69812;
+  --color-task-auto-bg: #eaf1fb;
+  --color-task-auto: var(--color-company-change);
+  --color-task-done-bg: #e8f5d9;
+  --color-task-done: #1a9d6e;
   --color-signals-scroll: #e7e9f2;
 
   --text-nav: 14px;
@@ -70,6 +79,22 @@
   --text-action-menu--line-height: 16px;
   --text-action-menu--font-weight: 500;
   --text-action-menu--letter-spacing: 0px;
+  --text-tasks-title: 14px;
+  --text-tasks-title--line-height: 22px;
+  --text-tasks-title--font-weight: 600;
+  --text-tasks-title--letter-spacing: 0px;
+  --text-task-count: 24px;
+  --text-task-count--line-height: 30px;
+  --text-task-count--font-weight: 500;
+  --text-task-count--letter-spacing: 0px;
+  --text-task-label: 14px;
+  --text-task-label--line-height: 16px;
+  --text-task-label--font-weight: 500;
+  --text-task-label--letter-spacing: 0px;
+  --text-task-error: 12px;
+  --text-task-error--line-height: 16px;
+  --text-task-error--font-weight: 500;
+  --text-task-error--letter-spacing: 0px;
 
   --spacing-stage: 1440px;
   --spacing-sidebar: 192px;
@@ -105,6 +130,10 @@
   --spacing-replies-h: 142px;
   --spacing-tasks: 800px;
   --spacing-tasks-h: 148px;
+  --spacing-task-card: 181.5px;
+  --spacing-task-card-h: 86px;
+  --radius-task-card: 12.21px;
+  --spacing-task-error: 71px;
   --spacing-signals: 800px;
   --spacing-signals-h: 412px;
   --spacing-signals-header-h: 52px;

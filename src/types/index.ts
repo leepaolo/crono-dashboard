@@ -13,6 +13,16 @@ export type TrialBannerData = {
   action: string
 }
 
+export type TaskId = 'overdue' | 'pending-manual' | 'pending-auto' | 'completed'
+
+export type TaskStat = {
+  id: TaskId
+  label: string
+  count: number
+  chevron: boolean
+  error?: string
+}
+
 export type SidebarUser = {
   name: string
   role: string
