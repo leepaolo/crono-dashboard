@@ -43,7 +43,7 @@
       { "text": " viewed ", "weight": "semibold" },
       { "text": "2 pages", "weight": "semibold", "highlight": true },
       { "text": " of your website for ", "weight": "semibold" },
-      { "text": "65 sec", "weight": "semibold", "highlight": true }
+      { "text": "65 sec", "weight": "semibold" }
     ],
     "tagId": "website-view",
     "inSequence": false,
@@ -58,7 +58,7 @@
       { "text": " viewed ", "weight": "semibold" },
       { "text": "2 pages", "weight": "semibold", "highlight": true },
       { "text": " of your website for ", "weight": "semibold" },
-      { "text": "65 sec", "weight": "semibold", "highlight": true }
+      { "text": "65 sec", "weight": "semibold" }
     ],
     "tagId": "website-view",
     "inSequence": false,
@@ -109,7 +109,7 @@
       { "text": " viewed ", "weight": "semibold" },
       { "text": "3 pages", "weight": "semibold", "highlight": true },
       { "text": " of your website for ", "weight": "semibold" },
-      { "text": "40 sec", "weight": "semibold", "highlight": true }
+      { "text": "40 sec", "weight": "semibold" }
     ],
     "tagId": "website-view",
     "inSequence": false,
@@ -136,7 +136,7 @@
       { "text": " viewed ", "weight": "semibold" },
       { "text": "1 page", "weight": "semibold", "highlight": true },
       { "text": " of your website for ", "weight": "semibold" },
-      { "text": "20 sec", "weight": "semibold", "highlight": true }
+      { "text": "20 sec", "weight": "semibold" }
     ],
     "tagId": "website-view",
     "inSequence": false,
@@ -151,7 +151,7 @@
       { "text": " viewed ", "weight": "semibold" },
       { "text": "4 pages", "weight": "semibold", "highlight": true },
       { "text": " of your website for ", "weight": "semibold" },
-      { "text": "90 sec", "weight": "semibold", "highlight": true }
+      { "text": "90 sec", "weight": "semibold" }
     ],
     "tagId": "website-view",
     "inSequence": false,

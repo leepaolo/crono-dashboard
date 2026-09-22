@@ -19,11 +19,19 @@ export function SignalRow({ signal, user, tag }: SignalView) {
     <li className="mb-signal-row-b w-full shrink-0 border-b border-line px-signal-row-x last:mb-0">
       <div className="mb-signal-row-b flex w-full items-center gap-signal-main-gap">
         <div className="flex min-w-0 flex-1 items-center gap-signal-identity-gap">
-          <img
-            src={signal.avatar}
-            alt=""
-            className="size-signal-avatar shrink-0 rounded-full"
-          />
+          <div className="relative size-signal-avatar shrink-0">
+            <img
+              src={signal.avatar}
+              alt=""
+              className="size-full rounded-full"
+            />
+            {signal.unread ? (
+              <span
+                aria-hidden="true"
+                className="absolute top-signal-unread-top left-signal-unread-left z-10 size-signal-unread rounded-full border-2 border-white bg-accent"
+              />
+            ) : null}
+          </div>
           <div className="flex min-w-0 flex-1 flex-col justify-center gap-signal-copy-gap">
             <p className="truncate text-signal-body text-ink">
               {user ? (

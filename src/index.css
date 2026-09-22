@@ -47,11 +47,11 @@
   --text-signals-subtitle--letter-spacing: 0px;
   --text-signal-name: 14px;
   --text-signal-name--line-height: 22px;
-  --text-signal-name--font-weight: 700;
+  --text-signal-name--font-weight: 600;
   --text-signal-name--letter-spacing: 0px;
   --text-signal-body: 14px;
   --text-signal-body--line-height: 22px;
-  --text-signal-body--font-weight: 600;
+  --text-signal-body--font-weight: 500;
   --text-signal-body--letter-spacing: 0px;
   --text-signal-tag: 12px;
   --text-signal-tag--line-height: 16px;
@@ -63,7 +63,7 @@
   --text-signal-date--letter-spacing: 0px;
   --text-signal-action: 14px;
   --text-signal-action--line-height: 18px;
-  --text-signal-action--font-weight: 600;
+  --text-signal-action--font-weight: 500;
   --text-signal-action--letter-spacing: 0px;
 
   --spacing-stage: 1440px;
@@ -129,6 +129,9 @@
   --spacing-signal-copy-h: 40px;
   --spacing-signal-copy-gap: 2px;
   --spacing-signal-avatar: 32px;
+  --spacing-signal-unread: 10px;
+  --spacing-signal-unread-top: -2px;
+  --spacing-signal-unread-left: -2px;
   --spacing-signal-meta: 167px;
   --spacing-signal-meta-h: 32px;
   --spacing-signal-meta-gap: 16px;
