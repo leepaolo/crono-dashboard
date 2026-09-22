@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "id": "dashboard",
+    "label": "Dashboard",
+    "icon": "/img/dashboard.svg",
+    "active": true
+  },
+  {
+    "id": "find-new",
+    "label": "Find New",
+    "icon": "/img/find.jpg"
+  },
+  {
+    "id": "lists",
+    "label": "Lists",
+    "icon": "/img/lists.svg"
+  },
+  {
+    "id": "templates",
+    "label": "Templates",
+    "icon": "/img/template.svg"
+  },
+  {
+    "id": "sequences",
+    "label": "Sequences",
+    "icon": "/img/sequences.svg"
+  },
+  {
+    "id": "tasks",
+    "label": "Tasks",
+    "icon": "/img/task.svg"
+  },
+  {
+    "id": "inbox",
+    "label": "Inbox",
+    "icon": "/img/inbox.svg",
+    "badge": "24"
+  },
+  {
+    "id": "deals",
+    "label": "Deals",
+    "icon": "/img/deals.svg"
+  },
+  {
+    "id": "analytics",
+    "label": "Analytics",
+    "icon": "/img/analytics.svg",
+    "expandable": true
+  }
+]

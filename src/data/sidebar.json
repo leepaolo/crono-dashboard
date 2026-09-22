@@ -1,0 +1,12 @@
+{
+  "trial": {
+    "active": true,
+    "message": "Trial ends in 2 days",
+    "action": "Upgrade plan"
+  },
+  "user": {
+    "name": "William Robertson",
+    "role": "Sales",
+    "avatar": "/img/company-logo.svg"
+  }
+}

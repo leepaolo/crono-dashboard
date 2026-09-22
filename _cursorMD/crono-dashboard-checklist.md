@@ -55,8 +55,8 @@ Fatto. I componenti esportano una funzione che ritorna `null`. I JSON sono array
 
 ## 2. Tipi e dati mock
 
-- [ ] `src/types/index.ts` con i tipi di nav item, task, signal, metrica, step di onboarding, utente.
-- [ ] `data/navItems.json`: Dashboard (attivo), Find New, Lists, Templates, Sequences, Tasks, Inbox (badge `24`), Deals, Analytics (chevron). Ogni item: icona, label, badge opzionale, flag attivo, flag espandibile.
+- [ ] `src/types/index.ts` con i tipi di nav item, task, signal, metrica, step di onboarding, utente. Fatti nav item, trial e utente. Mancano task, signal, metrica, step.
+- [x] `data/navItems.json`: Dashboard (attivo), Find New, Lists, Templates, Sequences, Tasks, Inbox (badge `24`), Deals, Analytics (chevron). Ogni item: icona, label, badge opzionale, flag attivo, flag espandibile.
 - [ ] `data/tasks.json`: Overdue `3` (rosa), Pending Manual `10` (giallo), Pending Auto `20` (azzurro, badge `1 error`), Completed `8` (verde). I primi tre hanno chevron; Completed no.
 - [ ] `data/metrics.json`: Contacts engaged `0/500`, Companies engaged `0/500`, Activities `1000/2000`, Meetings `20/30`, Deals `100/200`, Pipeline `€50K/100K`. Ogni metrica: icona, colore della progress bar, valore, target.
 - [ ] `data/signals.json`: almeno le 5 righe visibili, con abbastanza item da far comparire lo scroll interno. Contatore iniziale derivato dalle righe non lette (nel mock è `12`).
@@ -100,10 +100,22 @@ Da fare per primo: è la funzionalità che viene valutata.
 
 ## 4. Sidebar
 
-- [ ] `Sidebar`: colonna bianca, logo fulmine + wordmark `crono` in teal, bottone `«` in alto a destra (solo visivo, non collassa).
-- [ ] `SidebarNavList`: lista data-driven. Dashboard attivo in teal. Inbox con badge arancione `24`. Analytics con chevron. Icone SVG originali, grigie; l'item attivo in teal.
-- [ ] `TrialBanner`: card gialla condizionale. Testo «Trial ends in 2 days», bottone «Upgrade plan» con lucchetto, motivo decorativo a destra. Renderizzarla solo se il flag trial è attivo nei dati.
-- [ ] `UserProfileFooter`: avatar circolare con fulmine, nome `William Robertson`, ruolo `Sales`.
+Spec arrivate (in `@theme` di `src/index.css`):
+
+- Header logo + freccia: 192×72, `space-between`, padding 22px 8px 22px 16px. Cerchio freccia: 24×24, radius 12px, fondo `#F5F7F9`.
+- `SidebarNavList`: 192×416, gap 16px. Ogni voce è 32px (9×32 + 8×16 = 416).
+- `TrialBanner`: 176×64, radius 8px. Si renderizza solo se `sidebar.json` → `trial.active`.
+- `UserProfileFooter`: wrapper 192×72, gap 16px. Dentro, riga 192×52, gap 8px, padding 4px 12px, radius 29px.
+- Label nav e titolo trial: Poppins 500, 14px / 18px, letter-spacing 0. Nav attivo `#0A9B94`, default `#7A8395`.
+- «Upgrade plan»: 116×24, top 32px, left 8px, gap 4px, padding 4px 8px, radius 4px. Poppins 500, 12px / 16px, letter-spacing 0.
+- Nome e ruolo nel footer: Poppins 400, 14px / 24px, letter-spacing 0.
+- Colori ancora stimati dallo screenshot: testo `#303346`, badge e bottone `#F5BC09`, fondo trial `#FEF4D3`.
+- Icone in `public/img/`. Lists, Analytics e il chevron non erano nel repo: SVG ricostruiti sullo stile degli originali, da sostituire con l'export Figma.
+
+- [x] `Sidebar`: colonna bianca, logo fulmine + wordmark `crono` in teal, bottone `«` in alto a destra (solo visivo, non collassa).
+- [x] `SidebarNavList`: lista data-driven. Dashboard attivo in teal. Inbox con badge arancione `24`. Analytics con chevron. Icone SVG originali, grigie; l'item attivo in teal.
+- [x] `TrialBanner`: card gialla condizionale. Testo «Trial ends in 2 days», bottone «Upgrade plan» con lucchetto, motivo decorativo a destra. Renderizzarla solo se il flag trial è attivo nei dati.
+- [x] `UserProfileFooter`: avatar circolare con fulmine, nome `William Robertson`, ruolo `Sales`.
 
 ## 5. Welcome, Replies, Today's tasks
 

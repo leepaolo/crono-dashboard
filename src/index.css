@@ -1,14 +1,60 @@
 @import "tailwindcss";
 
 @theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+
   --color-canvas: #f5f7f9;
   --color-surface: #ffffff;
   /* Placeholder: il bordo non è ancora nella spec. */
   --color-line: #e3e7ec;
+  --color-brand: #0a9b94;
+  --color-muted: #7a8395;
+  /* Stimati dallo screenshot, in attesa di spec. */
+  --color-ink: #303346;
+  --color-accent: #f9bb06;
+  --color-trial: #fef3d2;
+
+  --text-nav: 14px;
+  --text-nav--line-height: 18px;
+  --text-nav--font-weight: 500;
+  --text-nav--letter-spacing: 0px;
+  --text-upgrade: 12px;
+  --text-upgrade--line-height: 16px;
+  --text-upgrade--font-weight: 500;
+  --text-upgrade--letter-spacing: 0px;
+  --text-profile: 14px;
+  --text-profile--line-height: 24px;
+  --text-profile--font-weight: 400;
+  --text-profile--letter-spacing: 0px;
 
   --spacing-stage: 1440px;
   --spacing-sidebar: 192px;
   --spacing-sidebar-h: 750px;
+  --spacing-sidebar-header: 72px;
+  --spacing-header-y: 22px;
+  --spacing-collapse: 24px;
+  --radius-collapse: 12px;
+  --spacing-nav-h: 416px;
+  --spacing-nav-gap: 16px;
+  --spacing-nav-item: 32px;
+  --spacing-trial-w: 176px;
+  --spacing-trial-h: 64px;
+  --spacing-trial-top: 16px;
+  --spacing-upgrade-w: 116px;
+  --spacing-upgrade-h: 24px;
+  --spacing-upgrade-top: 32px;
+  --spacing-upgrade-left: 8px;
+  --spacing-upgrade-gap: 4px;
+  --spacing-upgrade-y: 4px;
+  --spacing-upgrade-x: 8px;
+  --radius-upgrade: 4px;
+  --spacing-footer-h: 72px;
+  --spacing-footer-gap: 16px;
+  --spacing-profile-h: 52px;
+  --spacing-profile-gap: 8px;
+  --spacing-profile-y: 4px;
+  --spacing-profile-x: 12px;
+  --radius-profile: 29px;
   --spacing-welcome: 396px;
   --spacing-welcome-h: 142px;
   --spacing-replies: 396px;
@@ -21,4 +67,10 @@
   --spacing-performance-h: 293px;
   --spacing-onboarding: 408px;
   --spacing-onboarding-h: 412px;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+  }
 }
