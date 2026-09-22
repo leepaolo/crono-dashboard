@@ -1,5 +1,6 @@
 import type { SignalView } from "../../data/readSignals";
 import type { SignalSegment, SignalTagId } from "../../types";
+import { SignalActionPopover } from "./SignalActionPopover";
 
 const tagColorClass: Record<SignalTagId, string> = {
   "role-change": "text-role-change",
@@ -14,7 +15,16 @@ function segmentClass(segment: SignalSegment) {
   return `${weight} ${color}`;
 }
 
-export function SignalRow({ signal, user, tag }: SignalView) {
+export function SignalRow({
+  signal,
+  user,
+  tag,
+  menuOpen,
+  onMenuOpenChange,
+}: SignalView & {
+  menuOpen: boolean;
+  onMenuOpenChange: (open: boolean) => void;
+}) {
   return (
     <li className="mb-signal-row-b w-full shrink-0 border-b border-line px-signal-row-x last:mb-0">
       <div className="mb-signal-row-b flex w-full items-center gap-signal-main-gap">
@@ -65,12 +75,7 @@ export function SignalRow({ signal, user, tag }: SignalView) {
           >
             {signal.date}
           </time>
-          <button
-            type="button"
-            className="inline-flex h-signal-action-h w-signal-action shrink-0 items-center justify-center gap-signal-action-gap rounded-signal-action bg-action-button px-signal-action-x py-signal-action-y text-signal-action text-surface"
-          >
-            Action
-          </button>
+          <SignalActionPopover open={menuOpen} onOpenChange={onMenuOpenChange} />
         </div>
       </div>
     </li>
