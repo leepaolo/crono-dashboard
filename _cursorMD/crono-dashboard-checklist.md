@@ -65,7 +65,7 @@ Fatto. I componenti esportano una funzione che ritorna `null`. I JSON sono array
 
 ### Forma di un signal
 
-- [x] id, avatar, testo con segmenti (plain / bold / colorato), tag primario (es. `Role change`, `Company change`, `Website view`) con colore, tag secondario opzionale `in sequence`, data (`Apr 2, 2025`), stato `unread`.
+- [x] id, avatar, testo con segmenti (bold / semibold, highlight opzionale), `userId` opzionale verso `users.json`, `tagId` verso `signalTags.json`, flag `inSequence`, data (`Apr 2, 2025`), stato `unread`.
 
 Righe visibili nel mock:
 
@@ -87,9 +87,18 @@ Spec header arrivate (in `@theme` di `src/index.css`):
 - Badge: 28×24, padding 3px 8px, radius 12px, gap 10px. Fondo `--color-accent`, testo `--color-surface`. Il numero è `unread.length` (mock `12`). Font del numero allineato al titolo (14px / 600); line-height 18px per stare nel box da 24px.
 - Sottotitolo: Poppins 400, 14px / 24px, letter-spacing 0, colore `--color-muted`.
 
+Spec riga (`SignalRow`, token in `@theme`):
+
+- I tre tag sono un catalogo in `src/data/signalTags.json`. Il colore non sta nel JSON: l'id del tag è il nome della variabile (`--color-role-change` `#8846DC`, `--color-company-change` `#3B85E8`, `--color-website-view` `#E769CB`).
+- `in sequence` non è uno di quei tag. È il flag `inSequence` sul signal. Testo `--color-insequenze-font` `#0A9B94`, fondo `--color-insequenze-bg` `#E9F8F8`.
+- Robert Smith sta in `src/data/users.json` (ruolo `Sales`). I signal che lo riguardano hanno `userId`: il nome in bold viene dall'utente, il resto della frase è semibold.
+- Riga: 796×40, gap 10px, padding orizzontale 16px. Wrapper 764×40, gap 48px. Logo + testo 549×40, gap 16px. Testo + tag 501×40, gap 2px. Data + Action 167×32, gap 16px.
+- Nome: Poppins 700, 14px / 22px. Corpo: Poppins 600, 14px / 22px. Tag e data: 12px / 16px, ricavati dal box da 40px (22 + 2 + 16).
+- Action: 90×32, padding 7px 16px, radius 34px, fondo `--color-action-button` `#1EBAB2`, testo surface.
+
 - [x] `SignalsHeader`: titolo `Signals`, badge giallo con il conteggio, sottotitolo «Never miss a single opportunity: check out your top signals from your 1st-degree LinkedIn connections.»
 - [x] Il badge è `unread.length`. Nessuno state separato per il numero.
-- [ ] `SignalRow`: avatar, testo con parti in bold/colore, tag pill, data grigia, bottone pill `Action` teal.
+- [x] `SignalRow`: avatar, testo con parti in bold/colore, tag pill, data grigia, bottone pill `Action` teal.
 - [ ] `SignalActionPopover` (Radix): click su Action apre un popover con `Complete` (check verde) e `Delete` (cestino). Sfondo chiaro/menta, come in `Dashboard_Ultra-Hovers`.
 - [ ] Scegliere Complete o Delete toglie la riga dalla lista unread (o la marca processata e la nasconde).
 - [ ] Il badge scende di 1 a ogni azione (12 → 11 → …).

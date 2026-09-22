@@ -1,153 +1,160 @@
 [
   {
     "id": "signal-1",
-    "avatar": "/img/amazon.svg",
+    "userId": "robert-smith",
+    "avatar": "/img/amazon.png",
     "segments": [
-      { "text": "Robert Smith", "kind": "bold" },
-      { "text": " changed role from SDR to Senior SDR at WeRoad", "kind": "plain" }
+      { "text": " changed role from SDR to Senior SDR at WeRoad", "weight": "semibold" }
     ],
-    "tag": { "label": "Role change", "tone": "role" },
-    "secondaryTag": "in sequence",
+    "tagId": "role-change",
+    "inSequence": true,
     "date": "Apr 2, 2025",
     "unread": true
   },
   {
     "id": "signal-2",
-    "avatar": "/img/amazon.svg",
+    "userId": "robert-smith",
+    "avatar": "/img/amazon.png",
     "segments": [
-      { "text": "Robert Smith", "kind": "bold" },
-      { "text": " changed role from SDR to Senior SDR at WeRoad", "kind": "plain" }
+      { "text": " changed role from SDR to Senior SDR at WeRoad", "weight": "semibold" }
     ],
-    "tag": { "label": "Company change", "tone": "company" },
-    "secondaryTag": "in sequence",
+    "tagId": "company-change",
+    "inSequence": true,
     "date": "Apr 2, 2025",
     "unread": true
   },
   {
     "id": "signal-3",
-    "avatar": "/img/amazon.svg",
+    "userId": "robert-smith",
+    "avatar": "/img/amazon.png",
     "segments": [
-      { "text": "Robert Smith", "kind": "bold" },
-      { "text": " changed role from SDR to Senior SDR at WeRoad", "kind": "plain" }
+      { "text": " changed role from SDR to Senior SDR at WeRoad", "weight": "semibold" }
     ],
-    "tag": { "label": "Role change", "tone": "role" },
+    "tagId": "role-change",
+    "inSequence": false,
     "date": "Apr 2, 2025",
     "unread": true
   },
   {
     "id": "signal-4",
-    "avatar": "/img/amazon.svg",
+    "avatar": "/img/amazon.png",
     "segments": [
-      { "text": "Amazon", "kind": "bold" },
-      { "text": " viewed ", "kind": "plain" },
-      { "text": "2 pages", "kind": "colored" },
-      { "text": " of your website for ", "kind": "plain" },
-      { "text": "65 sec", "kind": "colored" }
+      { "text": "Amazon", "weight": "bold" },
+      { "text": " viewed ", "weight": "semibold" },
+      { "text": "2 pages", "weight": "semibold", "highlight": true },
+      { "text": " of your website for ", "weight": "semibold" },
+      { "text": "65 sec", "weight": "semibold", "highlight": true }
     ],
-    "tag": { "label": "Website view", "tone": "website" },
+    "tagId": "website-view",
+    "inSequence": false,
     "date": "Apr 2, 2025",
     "unread": true
   },
   {
     "id": "signal-5",
-    "avatar": "/img/amazon.svg",
+    "avatar": "/img/amazon.png",
     "segments": [
-      { "text": "Amazon", "kind": "bold" },
-      { "text": " viewed ", "kind": "plain" },
-      { "text": "2 pages", "kind": "colored" },
-      { "text": " of your website for ", "kind": "plain" },
-      { "text": "65 sec", "kind": "colored" }
+      { "text": "Amazon", "weight": "bold" },
+      { "text": " viewed ", "weight": "semibold" },
+      { "text": "2 pages", "weight": "semibold", "highlight": true },
+      { "text": " of your website for ", "weight": "semibold" },
+      { "text": "65 sec", "weight": "semibold", "highlight": true }
     ],
-    "tag": { "label": "Website view", "tone": "website" },
+    "tagId": "website-view",
+    "inSequence": false,
     "date": "Apr 2, 2025",
     "unread": true
   },
   {
     "id": "signal-6",
-    "avatar": "/img/amazon.svg",
+    "avatar": "/img/amazon.png",
     "segments": [
-      { "text": "Maya Patel", "kind": "bold" },
-      { "text": " changed role from BDR to SDR at Figma", "kind": "plain" }
+      { "text": "Maya Patel", "weight": "bold" },
+      { "text": " changed role from BDR to SDR at Figma", "weight": "semibold" }
     ],
-    "tag": { "label": "Role change", "tone": "role" },
-    "secondaryTag": "in sequence",
+    "tagId": "role-change",
+    "inSequence": true,
     "date": "Apr 2, 2025",
     "unread": true
   },
   {
     "id": "signal-7",
-    "avatar": "/img/amazon.svg",
+    "avatar": "/img/amazon.png",
     "segments": [
-      { "text": "Maya Patel", "kind": "bold" },
-      { "text": " changed company from Figma to WeRoad", "kind": "plain" }
+      { "text": "Maya Patel", "weight": "bold" },
+      { "text": " changed company from Figma to WeRoad", "weight": "semibold" }
     ],
-    "tag": { "label": "Company change", "tone": "company" },
-    "secondaryTag": "in sequence",
+    "tagId": "company-change",
+    "inSequence": true,
     "date": "Apr 2, 2025",
     "unread": true
   },
   {
     "id": "signal-8",
-    "avatar": "/img/amazon.svg",
+    "avatar": "/img/amazon.png",
     "segments": [
-      { "text": "Maya Patel", "kind": "bold" },
-      { "text": " changed role from BDR to SDR at Figma", "kind": "plain" }
+      { "text": "Maya Patel", "weight": "bold" },
+      { "text": " changed role from BDR to SDR at Figma", "weight": "semibold" }
     ],
-    "tag": { "label": "Role change", "tone": "role" },
+    "tagId": "role-change",
+    "inSequence": false,
     "date": "Apr 2, 2025",
     "unread": true
   },
   {
     "id": "signal-9",
-    "avatar": "/img/amazon.svg",
+    "avatar": "/img/amazon.png",
     "segments": [
-      { "text": "Reddit", "kind": "bold" },
-      { "text": " viewed ", "kind": "plain" },
-      { "text": "3 pages", "kind": "colored" },
-      { "text": " of your website for ", "kind": "plain" },
-      { "text": "40 sec", "kind": "colored" }
+      { "text": "Reddit", "weight": "bold" },
+      { "text": " viewed ", "weight": "semibold" },
+      { "text": "3 pages", "weight": "semibold", "highlight": true },
+      { "text": " of your website for ", "weight": "semibold" },
+      { "text": "40 sec", "weight": "semibold", "highlight": true }
     ],
-    "tag": { "label": "Website view", "tone": "website" },
+    "tagId": "website-view",
+    "inSequence": false,
     "date": "Apr 2, 2025",
     "unread": true
   },
   {
     "id": "signal-10",
-    "avatar": "/img/amazon.svg",
+    "avatar": "/img/amazon.png",
     "segments": [
-      { "text": "Luca Rossi", "kind": "bold" },
-      { "text": " changed role from AE to Senior AE at Stripe", "kind": "plain" }
+      { "text": "Luca Rossi", "weight": "bold" },
+      { "text": " changed role from AE to Senior AE at Stripe", "weight": "semibold" }
     ],
-    "tag": { "label": "Role change", "tone": "role" },
-    "secondaryTag": "in sequence",
+    "tagId": "role-change",
+    "inSequence": true,
     "date": "Apr 2, 2025",
     "unread": true
   },
   {
     "id": "signal-11",
-    "avatar": "/img/amazon.svg",
+    "avatar": "/img/amazon.png",
     "segments": [
-      { "text": "Notion", "kind": "bold" },
-      { "text": " viewed ", "kind": "plain" },
-      { "text": "1 page", "kind": "colored" },
-      { "text": " of your website for ", "kind": "plain" },
-      { "text": "20 sec", "kind": "colored" }
+      { "text": "Notion", "weight": "bold" },
+      { "text": " viewed ", "weight": "semibold" },
+      { "text": "1 page", "weight": "semibold", "highlight": true },
+      { "text": " of your website for ", "weight": "semibold" },
+      { "text": "20 sec", "weight": "semibold", "highlight": true }
     ],
-    "tag": { "label": "Website view", "tone": "website" },
+    "tagId": "website-view",
+    "inSequence": false,
     "date": "Apr 2, 2025",
     "unread": true
   },
   {
     "id": "signal-12",
-    "avatar": "/img/amazon.svg",
+    "avatar": "/img/amazon.png",
     "segments": [
-      { "text": "Stripe", "kind": "bold" },
-      { "text": " viewed ", "kind": "plain" },
-      { "text": "4 pages", "kind": "colored" },
-      { "text": " of your website for ", "kind": "plain" },
-      { "text": "90 sec", "kind": "colored" }
+      { "text": "Stripe", "weight": "bold" },
+      { "text": " viewed ", "weight": "semibold" },
+      { "text": "4 pages", "weight": "semibold", "highlight": true },
+      { "text": " of your website for ", "weight": "semibold" },
+      { "text": "90 sec", "weight": "semibold", "highlight": true }
     ],
-    "tag": { "label": "Website view", "tone": "website" },
+    "tagId": "website-view",
+    "inSequence": false,
     "date": "Apr 2, 2025",
     "unread": true
   }

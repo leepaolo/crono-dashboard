@@ -1,0 +1,5 @@
+[
+  { "id": "role-change", "label": "Role change" },
+  { "id": "company-change", "label": "Company change" },
+  { "id": "website-view", "label": "Website view" }
+]

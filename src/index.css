@@ -13,6 +13,13 @@
   --color-ink: #303346;
   --color-accent: #f9bb06;
   --color-trial: #fef3d2;
+  --color-role-change: #8846dc;
+  --color-company-change: #3b85e8;
+  --color-website-view: #e769cb;
+  --color-insequenze-font: #0a9b94;
+  --color-insequenze-bg: #e9f8f8;
+  --color-action-button: #1ebab2;
+  --color-signals-scroll: #e7e9f2;
 
   --text-nav: 14px;
   --text-nav--line-height: 18px;
@@ -30,7 +37,7 @@
   --text-signals-title--line-height: 22px;
   --text-signals-title--font-weight: 600;
   --text-signals-title--letter-spacing: 0px;
-  --text-signals-badge: 14px;
+  --text-signals-badge: 12px;
   --text-signals-badge--line-height: 18px;
   --text-signals-badge--font-weight: 600;
   --text-signals-badge--letter-spacing: 0px;
@@ -38,6 +45,26 @@
   --text-signals-subtitle--line-height: 24px;
   --text-signals-subtitle--font-weight: 400;
   --text-signals-subtitle--letter-spacing: 0px;
+  --text-signal-name: 14px;
+  --text-signal-name--line-height: 22px;
+  --text-signal-name--font-weight: 700;
+  --text-signal-name--letter-spacing: 0px;
+  --text-signal-body: 14px;
+  --text-signal-body--line-height: 22px;
+  --text-signal-body--font-weight: 600;
+  --text-signal-body--letter-spacing: 0px;
+  --text-signal-tag: 12px;
+  --text-signal-tag--line-height: 16px;
+  --text-signal-tag--font-weight: 400;
+  --text-signal-tag--letter-spacing: 0px;
+  --text-signal-date: 11px;
+  --text-signal-date--line-height: 16px;
+  --text-signal-date--font-weight: 400;
+  --text-signal-date--letter-spacing: 0px;
+  --text-signal-action: 14px;
+  --text-signal-action--line-height: 18px;
+  --text-signal-action--font-weight: 600;
+  --text-signal-action--letter-spacing: 0px;
 
   --spacing-stage: 1440px;
   --spacing-sidebar: 192px;
@@ -87,10 +114,61 @@
   --spacing-signals-badge-y: 3px;
   --spacing-signals-badge-x: 8px;
   --radius-signals-badge: 12px;
+  --spacing-signal-row: 796px;
+  --spacing-signal-row-h: 40px;
+  --spacing-signal-row-gap: 10px;
+  --spacing-signal-row-x: 16px;
+  --spacing-signal-row-b: 16px;
+  --spacing-signal-main: 764px;
+  --spacing-signal-main-h: 40px;
+  --spacing-signal-main-gap: 48px;
+  --spacing-signal-identity: 549px;
+  --spacing-signal-identity-h: 40px;
+  --spacing-signal-identity-gap: 16px;
+  --spacing-signal-copy: 501px;
+  --spacing-signal-copy-h: 40px;
+  --spacing-signal-copy-gap: 2px;
+  --spacing-signal-avatar: 32px;
+  --spacing-signal-meta: 167px;
+  --spacing-signal-meta-h: 32px;
+  --spacing-signal-meta-gap: 16px;
+  --spacing-signal-action: 90px;
+  --spacing-signal-action-h: 32px;
+  --spacing-signal-action-gap: 4px;
+  --spacing-signal-action-y: 7px;
+  --spacing-signal-action-x: 16px;
+  --radius-signal-action: 34px;
   --spacing-performance: 408px;
   --spacing-performance-h: 293px;
   --spacing-onboarding: 408px;
   --spacing-onboarding-h: 412px;
+}
+
+@utility scrollbar-signals {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-signals-scroll) transparent;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-button {
+    display: none;
+    height: 0;
+    width: 0;
+  }
+
+  &::-webkit-scrollbar-track {
+    margin-top: 4px;
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-left: 2px solid transparent;
+    border-radius: 4px;
+    background-color: var(--color-signals-scroll);
+    background-clip: padding-box;
+  }
 }
 
 @layer base {

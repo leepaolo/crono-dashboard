@@ -1,3 +1,70 @@
-export function SignalRow() {
-  return null
+import type { SignalView } from "../../data/readSignals";
+import type { SignalSegment, SignalTagId } from "../../types";
+
+const tagColorClass: Record<SignalTagId, string> = {
+  "role-change": "text-role-change",
+  "company-change": "text-company-change",
+  "website-view": "text-website-view",
+};
+
+function segmentClass(segment: SignalSegment) {
+  const weight =
+    segment.weight === "bold" ? "text-signal-name" : "text-signal-body";
+  const color = segment.highlight ? "text-brand" : "text-ink";
+  return `${weight} ${color}`;
+}
+
+export function SignalRow({ signal, user, tag }: SignalView) {
+  return (
+    <li className="mb-signal-row-b w-full shrink-0 border-b border-line px-signal-row-x last:mb-0">
+      <div className="mb-signal-row-b flex w-full items-center gap-signal-main-gap">
+        <div className="flex min-w-0 flex-1 items-center gap-signal-identity-gap">
+          <img
+            src={signal.avatar}
+            alt=""
+            className="size-signal-avatar shrink-0 rounded-full"
+          />
+          <div className="flex min-w-0 flex-1 flex-col justify-center gap-signal-copy-gap">
+            <p className="truncate text-signal-body text-ink">
+              {user ? (
+                <span className="text-signal-name">{user.name}</span>
+              ) : null}
+              {signal.segments.map((segment, index) => (
+                <span
+                  key={`${segment.text}-${index}`}
+                  className={segmentClass(segment)}
+                >
+                  {segment.text}
+                </span>
+              ))}
+            </p>
+            <div className="flex items-center gap-1.5">
+              <span className={`text-signal-tag ${tagColorClass[tag.id]}`}>
+                {tag.label}
+              </span>
+              {signal.inSequence ? (
+                <span className="inline-flex h-4 items-center rounded-full bg-insequenze-bg px-1.5 text-signal-tag text-insequenze-font">
+                  In sequence
+                </span>
+              ) : null}
+            </div>
+          </div>
+        </div>
+        <div className="flex h-signal-meta-h w-signal-meta shrink-0 items-center justify-end gap-signal-meta-gap">
+          <time
+            dateTime="2025-04-02"
+            className="text-signal-date whitespace-nowrap text-muted"
+          >
+            {signal.date}
+          </time>
+          <button
+            type="button"
+            className="inline-flex h-signal-action-h w-signal-action shrink-0 items-center justify-center gap-signal-action-gap rounded-signal-action bg-action-button px-signal-action-x py-signal-action-y text-signal-action text-surface"
+          >
+            Action
+          </button>
+        </div>
+      </div>
+    </li>
+  );
 }

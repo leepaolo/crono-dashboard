@@ -19,26 +19,34 @@ export type SidebarUser = {
   avatar: string
 }
 
-export type SignalTextKind = 'plain' | 'bold' | 'colored'
-
-export type SignalSegment = {
-  text: string
-  kind: SignalTextKind
-}
-
-export type SignalTagTone = 'role' | 'company' | 'website'
-
-export type SignalTag = {
-  label: string
-  tone: SignalTagTone
-}
-
-export type Signal = {
+export interface User {
   id: string
+  name: string
+  role: string
+}
+
+export type SignalTagId = 'role-change' | 'company-change' | 'website-view'
+
+export interface SignalTag {
+  id: SignalTagId
+  label: string
+}
+
+export type SignalTextWeight = 'bold' | 'semibold'
+
+export interface SignalSegment {
+  text: string
+  weight: SignalTextWeight
+  highlight?: boolean
+}
+
+export interface Signal {
+  id: string
+  userId?: string
   avatar: string
   segments: SignalSegment[]
-  tag: SignalTag
-  secondaryTag?: string
+  tagId: SignalTagId
+  inSequence: boolean
   date: string
   unread: boolean
 }
