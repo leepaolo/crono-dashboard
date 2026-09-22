@@ -136,7 +136,13 @@ Spec arrivate (in `@theme` di `src/index.css`):
 
 ## 5. Welcome, Replies, Today's tasks
 
-- [ ] `Welcome`: card bianca. Titolo `Welcome Alex,` in navy bold. Sottotitolo grigio: «Here's your performance overview where you can track your daily and monthly KPIs».
+Spec Welcome arrivate (in `@theme` di `src/index.css`):
+
+- Card: 396×142, radius 16px, bordo 1px `--color-action-menu-border` `#E6E9F2`, gap 8px, padding 32px 24px, fondo `--color-surface`. Posizione nel frame (top 16px, left 208px) è la griglia di `App.tsx`: sidebar 192 + gutter 16.
+- Titolo `Welcome Alex,`: Poppins 700, 24px / 30px, letter-spacing 0, colore `--color-navy`.
+- Descrizione: Poppins 400, 14px / 20px, letter-spacing 0, colore `--color-muted`.
+
+- [x] `Welcome`: card bianca. Titolo `Welcome Alex,` in navy bold. Sottotitolo grigio: «Here's your performance overview where you can track your daily and monthly KPIs».
 - [ ] `Replies`: header con titolo `Replies` e link teal `Open inbox >`. Corpo su fondo menta: icona inbox in cerchio, numero `24` grande, stack di 4 avatar sovrapposti (Reddit, Amazon, McDonald's, marchio «M»).
 - [x] `TodaysTasks`: titolo `Today's tasks`, poi 4 `TaskStatCard` in riga.
 - [x] `TaskStatCard`: numero grande colorato, label, chevron opzionale, badge errore opzionale (`1 error` + triangolo sulla card Pending Auto). Sfondi: rosa, giallo, azzurro, verde.

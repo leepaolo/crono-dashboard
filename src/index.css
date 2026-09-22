@@ -95,6 +95,14 @@
   --text-task-error--line-height: 16px;
   --text-task-error--font-weight: 500;
   --text-task-error--letter-spacing: 0px;
+  --text-welcome-title: 24px;
+  --text-welcome-title--line-height: 30px;
+  --text-welcome-title--font-weight: 700;
+  --text-welcome-title--letter-spacing: 0px;
+  --text-welcome-body: 14px;
+  --text-welcome-body--line-height: 20px;
+  --text-welcome-body--font-weight: 400;
+  --text-welcome-body--letter-spacing: 0px;
 
   --spacing-stage: 1440px;
   --spacing-sidebar: 192px;
