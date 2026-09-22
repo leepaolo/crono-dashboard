@@ -26,6 +26,18 @@
   --text-profile--line-height: 24px;
   --text-profile--font-weight: 400;
   --text-profile--letter-spacing: 0px;
+  --text-signals-title: 14px;
+  --text-signals-title--line-height: 22px;
+  --text-signals-title--font-weight: 600;
+  --text-signals-title--letter-spacing: 0px;
+  --text-signals-badge: 14px;
+  --text-signals-badge--line-height: 18px;
+  --text-signals-badge--font-weight: 600;
+  --text-signals-badge--letter-spacing: 0px;
+  --text-signals-subtitle: 14px;
+  --text-signals-subtitle--line-height: 24px;
+  --text-signals-subtitle--font-weight: 400;
+  --text-signals-subtitle--letter-spacing: 0px;
 
   --spacing-stage: 1440px;
   --spacing-sidebar: 192px;
@@ -63,6 +75,18 @@
   --spacing-tasks-h: 148px;
   --spacing-signals: 800px;
   --spacing-signals-h: 412px;
+  --spacing-signals-header-h: 52px;
+  --spacing-signals-header-gap: 4px;
+  --spacing-signals-header-x: 16px;
+  --spacing-signals-title-w: 87px;
+  --spacing-signals-title-h: 24px;
+  --spacing-signals-title-gap: 6px;
+  --spacing-signals-badge: 28px;
+  --spacing-signals-badge-h: 24px;
+  --spacing-signals-badge-gap: 10px;
+  --spacing-signals-badge-y: 3px;
+  --spacing-signals-badge-x: 8px;
+  --radius-signals-badge: 12px;
   --spacing-performance: 408px;
   --spacing-performance-h: 293px;
   --spacing-onboarding: 408px;

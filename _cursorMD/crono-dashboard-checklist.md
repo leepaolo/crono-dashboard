@@ -55,32 +55,40 @@ Fatto. I componenti esportano una funzione che ritorna `null`. I JSON sono array
 
 ## 2. Tipi e dati mock
 
-- [ ] `src/types/index.ts` con i tipi di nav item, task, signal, metrica, step di onboarding, utente. Fatti nav item, trial e utente. Mancano task, signal, metrica, step.
+- [ ] `src/types/index.ts` con i tipi di nav item, task, signal, metrica, step di onboarding, utente. Fatti nav item, trial, utente e signal. Mancano task, metrica, step.
 - [x] `data/navItems.json`: Dashboard (attivo), Find New, Lists, Templates, Sequences, Tasks, Inbox (badge `24`), Deals, Analytics (chevron). Ogni item: icona, label, badge opzionale, flag attivo, flag espandibile.
 - [ ] `data/tasks.json`: Overdue `3` (rosa), Pending Manual `10` (giallo), Pending Auto `20` (azzurro, badge `1 error`), Completed `8` (verde). I primi tre hanno chevron; Completed no.
 - [ ] `data/metrics.json`: Contacts engaged `0/500`, Companies engaged `0/500`, Activities `1000/2000`, Meetings `20/30`, Deals `100/200`, Pipeline `€50K/100K`. Ogni metrica: icona, colore della progress bar, valore, target.
-- [ ] `data/signals.json`: almeno le 5 righe visibili, con abbastanza item da far comparire lo scroll interno. Contatore iniziale derivato dalle righe non lette (nel mock è `12`).
+- [x] `data/signals.json`: almeno le 5 righe visibili, con abbastanza item da far comparire lo scroll interno. Contatore iniziale derivato dalle righe non lette (nel mock è `12`).
 - [ ] `data/onboarding.json`: Integrations Setup `5 min`, Add new Contact `5 min`, Create your first sequence `10 min`, Add contacts to sequence `5 min`, Run your first task `10 min`.
 - [ ] Hook `useSignals`: carica il JSON dopo un `setTimeout`, espone lista, stato di loading e le azioni Complete / Delete.
 
 ### Forma di un signal
 
-- [ ] id, avatar, testo con segmenti (plain / bold / colorato), tag primario (es. `Role change`, `Company change`, `Website view`) con colore, tag secondario opzionale `in sequence`, data (`Apr 2, 2025`), stato `unread`.
+- [x] id, avatar, testo con segmenti (plain / bold / colorato), tag primario (es. `Role change`, `Company change`, `Website view`) con colore, tag secondario opzionale `in sequence`, data (`Apr 2, 2025`), stato `unread`.
 
 Righe visibili nel mock:
 
-- [ ] Robert Smith — role change, tag viola `Role change` + pill `in sequence`.
-- [ ] Robert Smith — company change, tag `Company change` + pill `in sequence`.
-- [ ] Robert Smith — role change, solo tag `Role change`.
-- [ ] Amazon — website view, `2 pages` e `65 sec` in evidenza, tag rosa `Website view`.
-- [ ] Amazon — stessa riga website view, ripetuta.
+- [x] Robert Smith — role change, tag viola `Role change` + pill `in sequence`.
+- [x] Robert Smith — company change, tag `Company change` + pill `in sequence`.
+- [x] Robert Smith — role change, solo tag `Role change`.
+- [x] Amazon — website view, `2 pages` e `65 sec` in evidenza, tag rosa `Website view`.
+- [x] Amazon — stessa riga website view, ripetuta.
 
 ## 3. Signals (unico blocco interattivo)
 
 Da fare per primo: è la funzionalità che viene valutata.
 
-- [ ] `SignalsHeader`: titolo `Signals`, badge giallo con il conteggio, sottotitolo «Never miss a single opportunity: check out your top signals from your 1st-degree LinkedIn connections.»
-- [ ] Il badge è `unread.length`. Nessuno state separato per il numero.
+Spec header arrivate (in `@theme` di `src/index.css`):
+
+- Header: 800×52, gap 4px, padding orizzontale 16px.
+- Wrapper titolo + badge: 87×24, gap 6px.
+- Titolo `Signals`: Poppins 600, 14px / 22px, letter-spacing 0, colore `--color-ink`.
+- Badge: 28×24, padding 3px 8px, radius 12px, gap 10px. Fondo `--color-accent`, testo `--color-surface`. Il numero è `unread.length` (mock `12`). Font del numero allineato al titolo (14px / 600); line-height 18px per stare nel box da 24px.
+- Sottotitolo: Poppins 400, 14px / 24px, letter-spacing 0, colore `--color-muted`.
+
+- [x] `SignalsHeader`: titolo `Signals`, badge giallo con il conteggio, sottotitolo «Never miss a single opportunity: check out your top signals from your 1st-degree LinkedIn connections.»
+- [x] Il badge è `unread.length`. Nessuno state separato per il numero.
 - [ ] `SignalRow`: avatar, testo con parti in bold/colore, tag pill, data grigia, bottone pill `Action` teal.
 - [ ] `SignalActionPopover` (Radix): click su Action apre un popover con `Complete` (check verde) e `Delete` (cestino). Sfondo chiaro/menta, come in `Dashboard_Ultra-Hovers`.
 - [ ] Scegliere Complete o Delete toglie la riga dalla lista unread (o la marca processata e la nasconde).
