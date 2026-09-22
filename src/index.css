@@ -19,6 +19,8 @@
   --color-website-view: #e769cb;
   --color-insequenze-font: #0a9b94;
   --color-insequenze-bg: #e9f8f8;
+  --color-replies-icon: #ceeded;
+  --color-replies-figure: #3e485b;
   --color-action-button: #1ebab2;
   --color-action-menu-border: #e6e9f2;
   --color-task-overdue-bg: #ffe9e9;
@@ -103,6 +105,10 @@
   --text-welcome-body--line-height: 20px;
   --text-welcome-body--font-weight: 400;
   --text-welcome-body--letter-spacing: 0px;
+  --text-replies-count: 36px;
+  --text-replies-count--line-height: 44px;
+  --text-replies-count--font-weight: 500;
+  --text-replies-count--letter-spacing: 0px;
 
   --spacing-stage: 1440px;
   --spacing-sidebar: 192px;
@@ -136,6 +142,11 @@
   --spacing-welcome-h: 142px;
   --spacing-replies: 396px;
   --spacing-replies-h: 142px;
+  --spacing-replies-header-h: 22px;
+  --spacing-replies-icon: 48px;
+  --radius-replies-icon: 24px;
+  --spacing-replies-avatar: 32px;
+  --spacing-replies-stack: 104px;
   --spacing-tasks: 800px;
   --spacing-tasks-h: 148px;
   --spacing-task-card: 181.5px;

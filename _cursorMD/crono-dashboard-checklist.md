@@ -142,8 +142,18 @@ Spec Welcome arrivate (in `@theme` di `src/index.css`):
 - Titolo `Welcome Alex,`: Poppins 700, 24px / 30px, letter-spacing 0, colore `--color-navy`.
 - Descrizione: Poppins 400, 14px / 20px, letter-spacing 0, colore `--color-muted`.
 
+Spec Replies arrivate (in `@theme` di `src/index.css`):
+
+- Card: 396×142, radius 16px, bordo 1px `--color-action-menu-border`, gap 8px, padding 16px, fondo `--color-surface`. Stesso bordo e fondo di Welcome. Posizione nel frame (top 16px, left 612px) è la griglia di `App.tsx`.
+- Header: 364×22, `space-between`. Titolo `Replies`: stessi token di Today's tasks (`--text-tasks-title`, `--color-navy`).
+- `Open inbox`: stessi token della nav (`--text-nav`, `--color-brand`) più chevron 16px nello stesso colore.
+- Corpo: 364×80, radius 12px, gap 16px, padding 16px 24px 16px 16px, fondo `--color-insequenze-bg`.
+- Icona mail: 48×48, radius 24px, padding 12px, fondo `--color-replies-icon` `#CEEDED`.
+- Numero `24`: Poppins 500, 36px / 44px, colore `--color-replies-figure` `#3E485B`.
+- Stack loghi: 104×32, quattro cerchi da 32px sovrapposti di 8px (Reddit, Amazon, McDonald's, Medium).
+
 - [x] `Welcome`: card bianca. Titolo `Welcome Alex,` in navy bold. Sottotitolo grigio: «Here's your performance overview where you can track your daily and monthly KPIs».
-- [ ] `Replies`: header con titolo `Replies` e link teal `Open inbox >`. Corpo su fondo menta: icona inbox in cerchio, numero `24` grande, stack di 4 avatar sovrapposti (Reddit, Amazon, McDonald's, marchio «M»).
+- [x] `Replies`: header con titolo `Replies` e link teal `Open inbox >`. Corpo su fondo menta: icona inbox in cerchio, numero `24` grande, stack di 4 avatar sovrapposti (Reddit, Amazon, McDonald's, marchio «M»).
 - [x] `TodaysTasks`: titolo `Today's tasks`, poi 4 `TaskStatCard` in riga.
 - [x] `TaskStatCard`: numero grande colorato, label, chevron opzionale, badge errore opzionale (`1 error` + triangolo sulla card Pending Auto). Sfondi: rosa, giallo, azzurro, verde.
 
