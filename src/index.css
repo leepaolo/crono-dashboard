@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+@theme {
+  --color-canvas: #f5f7f9;
+  --color-surface: #ffffff;
+  /* Placeholder: il bordo non è ancora nella spec. */
+  --color-line: #e3e7ec;
+
+  --spacing-stage: 1440px;
+  --spacing-sidebar: 192px;
+  --spacing-sidebar-h: 750px;
+  --spacing-welcome: 396px;
+  --spacing-welcome-h: 142px;
+  --spacing-replies: 396px;
+  --spacing-replies-h: 142px;
+  --spacing-tasks: 800px;
+  --spacing-tasks-h: 148px;
+  --spacing-signals: 800px;
+  --spacing-signals-h: 412px;
+  --spacing-performance: 408px;
+  --spacing-performance-h: 293px;
+  --spacing-onboarding: 408px;
+  --spacing-onboarding-h: 412px;
+}

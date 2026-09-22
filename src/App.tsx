@@ -1,16 +1,26 @@
-function App() {
+import { OnboardingPanel } from './components/Onboarding/OnboardingPanel'
+import { PerformancePanel } from './components/Performance/PerformancePanel'
+import { Replies } from './components/Replies/Replies'
+import { Sidebar } from './components/Sidebar/Sidebar'
+import { SignalsPanel } from './components/Signals/SignalsPanel'
+import { TodaysTasks } from './components/TodaysTasks/TodaysTasks'
+import { Welcome } from './components/Welcome/Welcome'
+
+const content =
+  'grid min-h-svh flex-1 grid-cols-[16px_minmax(var(--spacing-welcome),1fr)_8px_minmax(var(--spacing-replies),1fr)_8px_var(--spacing-performance)_16px] grid-rows-[16px_var(--spacing-welcome-h)_8px_var(--spacing-tasks-h)_8px_var(--spacing-signals-h)]'
+
+export default function App() {
   return (
-    <main className="flex min-h-svh items-center justify-center bg-zinc-950 text-zinc-100">
-      <div className="text-center">
-        <p className="text-sm font-medium tracking-[0.2em] text-zinc-400 uppercase">
-          React 19 · Tailwind CSS
-        </p>
-        <h1 className="mt-3 text-4xl font-semibold tracking-tight">
-          crono-dashboard
-        </h1>
+    <main className="flex min-h-svh min-w-stage bg-canvas">
+      <Sidebar />
+      <div className={content}>
+        <Welcome className="col-start-2 row-start-2" />
+        <Replies className="col-start-4 row-start-2" />
+        <TodaysTasks className="col-start-2 col-span-3 row-start-4" />
+        <SignalsPanel className="col-start-2 col-span-3 row-start-6" />
+        <PerformancePanel className="col-start-6 row-start-2 row-span-3 self-end" />
+        <OnboardingPanel className="col-start-6 row-start-6" />
       </div>
     </main>
   )
 }
-
-export default App
