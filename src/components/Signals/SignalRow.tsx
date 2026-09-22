@@ -21,9 +21,13 @@ export function SignalRow({
   tag,
   menuOpen,
   onMenuOpenChange,
+  onComplete,
+  onDelete,
 }: SignalView & {
   menuOpen: boolean;
   onMenuOpenChange: (open: boolean) => void;
+  onComplete: () => void;
+  onDelete: () => void;
 }) {
   return (
     <li className="mb-signal-row-b w-full shrink-0 border-b border-line px-signal-row-x last:mb-0">
@@ -75,7 +79,12 @@ export function SignalRow({
           >
             {signal.date}
           </time>
-          <SignalActionPopover open={menuOpen} onOpenChange={onMenuOpenChange} />
+          <SignalActionPopover
+            open={menuOpen}
+            onOpenChange={onMenuOpenChange}
+            onComplete={onComplete}
+            onDelete={onDelete}
+          />
         </div>
       </div>
     </li>

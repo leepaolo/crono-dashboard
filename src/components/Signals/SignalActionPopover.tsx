@@ -62,9 +62,13 @@ function TrashIcon() {
 export function SignalActionPopover({
   open,
   onOpenChange,
+  onComplete,
+  onDelete,
 }: {
   open: boolean
   onOpenChange: (open: boolean) => void
+  onComplete: () => void
+  onDelete: () => void
 }) {
   return (
     <Popover.Root open={open} onOpenChange={onOpenChange}>
@@ -84,7 +88,7 @@ export function SignalActionPopover({
           className="z-50 flex h-action-menu-h w-action-menu flex-col rounded-action-menu bg-surface p-action-menu-p shadow-action-menu outline-none"
         >
           <Popover.Close asChild>
-            <button type="button" className={itemClass}>
+            <button type="button" className={itemClass} onClick={onComplete}>
               <span>Complete</span>
               <span className="inline-flex size-6 shrink-0 items-center justify-center">
                 <CheckIcon />
@@ -92,7 +96,7 @@ export function SignalActionPopover({
             </button>
           </Popover.Close>
           <Popover.Close asChild>
-            <button type="button" className={itemClass}>
+            <button type="button" className={itemClass} onClick={onDelete}>
               <span>Delete</span>
               <span className="inline-flex size-6 shrink-0 items-center justify-center">
                 <TrashIcon />
