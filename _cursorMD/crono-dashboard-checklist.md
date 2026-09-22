@@ -4,7 +4,7 @@ Replica statica desktop della dashboard Crono. Un solo blocco è interattivo: **
 
 Viewport di riferimento: **1440px** di larghezza, contenitore centrato. L'altezza del frame Figma (750px) è solo l'above the fold: la pagina scorre in verticale, senza altezza fissa.
 
-Stato attuale del repo: Vite + React 19 + TypeScript + Tailwind 4 già installati. `App.tsx` è ancora il placeholder. Mancano Radix, le icone SVG, i dati mock e tutti i componenti.
+Stato attuale del repo: Vite + React 19 + TypeScript + Tailwind 4 già installati. Lo scaffold dei file c'è (shell vuoti, senza UI né logica). `App.tsx` è ancora il placeholder e non importa i componenti. Mancano Radix, le icone SVG e il contenuto di dati, tipi e componenti.
 
 ## Vincoli
 
@@ -30,15 +30,30 @@ Sfondo pagina grigio chiaro. Card bianche con radius ampio e ombra leggera. Il p
 
 ---
 
-## 0. Setup
+## 0. Scaffold dei file
+
+Fatto. I componenti esportano una funzione che ritorna `null`. I JSON sono array vuoti. `types/index.ts` e `useSignals.ts` non hanno ancora tipi né fetch. `App.tsx` non monta nulla di tutto questo.
+
+- [x] `src/components/Sidebar/` — `Sidebar.tsx`, `SidebarNavList.tsx`, `TrialBanner.tsx`, `UserProfileFooter.tsx`
+- [x] `src/components/Welcome/Welcome.tsx`
+- [x] `src/components/Replies/Replies.tsx`
+- [x] `src/components/TodaysTasks/` — `TodaysTasks.tsx`, `TaskStatCard.tsx`
+- [x] `src/components/Signals/` — `SignalsPanel.tsx`, `SignalsHeader.tsx`, `SignalRow.tsx`, `SignalActionPopover.tsx`
+- [x] `src/components/Performance/` — `PerformancePanel.tsx`, `MetricCard.tsx`
+- [x] `src/components/Onboarding/` — `OnboardingPanel.tsx`, `OnboardingStep.tsx`
+- [x] `src/data/` — `signals.json`, `navItems.json`, `metrics.json`, `tasks.json`, `onboarding.json`
+- [x] `src/hooks/useSignals.ts`
+- [x] `src/types/index.ts`
+
+## 1. Setup
 
 - [ ] Installare `@radix-ui/react-popover` (oppure `dropdown-menu`) per il menu Action.
 - [ ] Decidere come importare gli SVG: `vite-plugin-svgr` se serve ricolorare via CSS, altrimenti `<img>`.
-- [ ] Creare le cartelle: `src/components/{Sidebar,Welcome,Replies,TodaysTasks,Signals,Performance,Onboarding}`, `src/data`, `src/hooks`, `src/types`, `src/assets/icons`.
+- [ ] Creare `src/assets/icons/` e metterci gli SVG esportati da Figma.
 - [ ] Impostare lo shell della pagina: contenitore 1440px centrato, `min-h-screen`, scroll del body. Sfondo pagina e font di base.
 - [ ] Shell a due colonne: sidebar + main. Il main è una griglia a 3 colonne (Welcome | Replies | Performance) con Today's tasks che copre le prime due, Signals sotto a sinistra e Onboarding sotto a destra.
 
-## 1. Tipi e dati mock
+## 2. Tipi e dati mock
 
 - [ ] `src/types/index.ts` con i tipi di nav item, task, signal, metrica, step di onboarding, utente.
 - [ ] `data/navItems.json`: Dashboard (attivo), Find New, Lists, Templates, Sequences, Tasks, Inbox (badge `24`), Deals, Analytics (chevron). Ogni item: icona, label, badge opzionale, flag attivo, flag espandibile.
@@ -60,7 +75,7 @@ Righe visibili nel mock:
 - [ ] Amazon — website view, `2 pages` e `65 sec` in evidenza, tag rosa `Website view`.
 - [ ] Amazon — stessa riga website view, ripetuta.
 
-## 2. Signals (unico blocco interattivo)
+## 3. Signals (unico blocco interattivo)
 
 Da fare per primo: è la funzionalità che viene valutata.
 
@@ -83,21 +98,21 @@ Da fare per primo: è la funzionalità che viene valutata.
 - [ ] Lo scroll interno funziona se le righe superano l'altezza massima.
 - [ ] Ricaricando la pagina, i dati mock tornano allo stato iniziale.
 
-## 3. Sidebar
+## 4. Sidebar
 
 - [ ] `Sidebar`: colonna bianca, logo fulmine + wordmark `crono` in teal, bottone `«` in alto a destra (solo visivo, non collassa).
 - [ ] `SidebarNavList`: lista data-driven. Dashboard attivo in teal. Inbox con badge arancione `24`. Analytics con chevron. Icone SVG originali, grigie; l'item attivo in teal.
 - [ ] `TrialBanner`: card gialla condizionale. Testo «Trial ends in 2 days», bottone «Upgrade plan» con lucchetto, motivo decorativo a destra. Renderizzarla solo se il flag trial è attivo nei dati.
 - [ ] `UserProfileFooter`: avatar circolare con fulmine, nome `William Robertson`, ruolo `Sales`.
 
-## 4. Welcome, Replies, Today's tasks
+## 5. Welcome, Replies, Today's tasks
 
 - [ ] `Welcome`: card bianca. Titolo `Welcome Alex,` in navy bold. Sottotitolo grigio: «Here's your performance overview where you can track your daily and monthly KPIs».
 - [ ] `Replies`: header con titolo `Replies` e link teal `Open inbox >`. Corpo su fondo menta: icona inbox in cerchio, numero `24` grande, stack di 4 avatar sovrapposti (Reddit, Amazon, McDonald's, marchio «M»).
 - [ ] `TodaysTasks`: titolo `Today's tasks`, poi 4 `TaskStatCard` in riga.
 - [ ] `TaskStatCard`: numero grande colorato, label, chevron opzionale, badge errore opzionale (`1 error` + triangolo sulla card Pending Auto). Sfondi: rosa, giallo, azzurro, verde.
 
-## 5. Performance
+## 6. Performance
 
 - [ ] `PerformancePanel`: titolo `May's performance`, link teal `Edit KPIs` con icona matita.
 - [ ] Griglia a 2 colonne di `MetricCard`.
@@ -105,14 +120,14 @@ Da fare per primo: è la funzionalità che viene valutata.
 - [ ] Allineare il primo slot al frame corretto. Il crop isolato lascia vuota la cella in alto a sinistra e mette Companies engaged da sola a destra. `Dashboard_Ultra` invece mostra Contacts engaged `0/500` in quella cella, e l'hover mostra un'icona info. Seguire il prompt (cella vuota) finché non arriva la spec; tenere Contacts engaged nei dati così si può riaccendere.
 - [ ] Ordine nel crop: riga 1 Companies engaged; riga 2 Activities (viola) | Meetings (oro); riga 3 Deals (rosa) | Pipeline (verde).
 
-## 6. Onboarding
+## 7. Onboarding
 
 - [ ] `OnboardingPanel`: titolo `Onboarding`.
 - [ ] `OnboardingStep` ripetuto 5 volte, separato da divider.
 - [ ] Ogni step: icona illustrata colorata, titolo, durata a destra in grigio (`5 min` / `10 min`).
 - [ ] Icone distinte: Integrations (link/puzzle), Contact (persona + valigetta), Sequence (razzo), Add contacts (persona +), Task (checkbox).
 
-## 7. Composizione e rifinitura
+## 8. Composizione e rifinitura
 
 - [ ] Montare i 7 blocchi in `App.tsx` nella griglia descritta sopra.
 - [ ] Passare i token mano a mano che arrivano, con la sintassi `NomeComponente/elemento: padding, font-size/peso, colore, radius`, e sostituire i placeholder.
