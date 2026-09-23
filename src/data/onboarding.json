@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "id": "integrations",
+    "title": "Integrations Setup",
+    "duration": "5 min",
+    "icon": "/img/integration-setup.svg"
+  },
+  {
+    "id": "add-contact",
+    "title": "Add new Contact",
+    "duration": "5 min",
+    "icon": "/img/add-new-contacts.svg"
+  },
+  {
+    "id": "sequence",
+    "title": "Create your first sequence",
+    "duration": "10 min",
+    "icon": "/img/target-goal.svg"
+  },
+  {
+    "id": "contacts-sequence",
+    "title": "Add contacts to sequence",
+    "duration": "5 min",
+    "icon": "/img/add-contact-to-sequence.svg"
+  },
+  {
+    "id": "run-task",
+    "title": "Run your first task",
+    "duration": "10 min",
+    "icon": "/img/run-task.svg"
+  }
+]

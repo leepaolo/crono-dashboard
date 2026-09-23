@@ -63,6 +63,13 @@ export type Metric = {
   info?: boolean
 }
 
+export type OnboardingStepData = {
+  id: string
+  title: string
+  duration: string
+  icon: string
+}
+
 export interface Signal {
   id: string
   userId?: string

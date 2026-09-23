@@ -222,6 +222,14 @@
   --radius-metric-bar: 3px;
   --spacing-onboarding: 408px;
   --spacing-onboarding-h: 412px;
+  --spacing-onboarding-inset: 16px;
+  --spacing-onboarding-steps: 373px;
+  --spacing-onboarding-steps-h: 332px;
+  --spacing-onboarding-steps-top: 50px;
+  --spacing-onboarding-gap: 16px;
+  --spacing-onboarding-row-h: 40px;
+  --spacing-onboarding-row-pr: 8px;
+  --spacing-onboarding-icon: 40px;
 }
 
 @utility scrollbar-signals {
