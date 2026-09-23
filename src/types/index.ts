@@ -1,82 +1,92 @@
-export type NavItem = {
-  id: string
-  label: string
-  icon: string
-  active?: boolean
-  badge?: string
-  expandable?: boolean
+export interface INavItem {
+  id: string;
+  label: string;
+  icon: string;
+  active?: boolean;
+  badge?: string;
+  expandable?: boolean;
 }
 
-export type TrialBannerData = {
-  active: boolean
-  message: string
-  action: string
+export interface ITrialBannerData {
+  active: boolean;
+  message: string;
+  action: string;
 }
 
-export type TaskId = 'overdue' | 'pending-manual' | 'pending-auto' | 'completed'
+export type TTaskId =
+  | "overdue"
+  | "pending-manual"
+  | "pending-auto"
+  | "completed";
 
-export type TaskStat = {
-  id: TaskId
-  label: string
-  count: number
-  chevron: boolean
-  error?: string
+export type TSignalTagId = "role-change" | "company-change" | "website-view";
+
+export type TMetricId =
+  | "contacts"
+  | "companies"
+  | "activities"
+  | "meetings"
+  | "deals"
+  | "pipeline";
+
+export type TSignalTextWeight = "bold" | "semibold";
+
+export interface ITaskStat {
+  id: TTaskId;
+  label: string;
+  count: number;
+  chevron: boolean;
+  error?: string;
 }
 
-export type SidebarUser = {
-  name: string
-  role: string
-  avatar: string
+export interface ISidebarUser {
+  name: string;
+  role: string;
+  avatar: string;
 }
 
-export interface User {
-  id: string
-  name: string
-  role: string
+export interface IUser {
+  id: string;
+  name: string;
+  role: string;
 }
 
-export type SignalTagId = 'role-change' | 'company-change' | 'website-view'
-
-export interface SignalTag {
-  id: SignalTagId
-  label: string
+export interface ISignalTag {
+  id: TSignalTagId;
+  label: string;
 }
 
-export type SignalTextWeight = 'bold' | 'semibold'
-
-export interface SignalSegment {
-  text: string
-  weight: SignalTextWeight
-  highlight?: boolean
+export interface ISignalSegment {
+  text: string;
+  weight: TSignalTextWeight;
+  highlight?: boolean;
 }
 
-export type MetricId = 'contacts' | 'companies' | 'activities' | 'meetings' | 'deals' | 'pipeline'
-
-export type Metric = {
-  id: MetricId
-  label: string
-  value: number
-  target: number
-  valueLabel: string
-  targetLabel: string
-  icon?: string
-  info?: boolean
+export interface IMetric {
+  id: TMetricId;
+  label: string;
+  value: number;
+  target: number;
+  valueLabel: string;
+  targetLabel: string;
+  icon?: string;
+  info?: boolean;
 }
 
-export type OnboardingStepData = {
-  id: string
-  title: string
-  duration: string
-  icon: string
+export interface IOnboardingStepData {
+  id: string;
+  title: string;
+  duration: string;
+  icon: string;
 }
 
-export interface Signal {
-  id: string
-  userId?: string
-  avatar: string
-  segments: SignalSegment[]
-  tagId: SignalTagId
-  inSequence: boolean
-  date: string
-  unread: boolean
+export interface ISignal {
+  id: string;
+  userId?: string;
+  avatar: string;
+  segments: ISignalSegment[];
+  tagId: TSignalTagId;
+  inSequence: boolean;
+  date: string;
+  unread: boolean;
 }

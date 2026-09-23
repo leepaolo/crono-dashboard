@@ -1,13 +1,13 @@
-import type { TaskId, TaskStat } from '../../types'
+import type { TTaskId, ITaskStat } from '../../types'
 
-const tone: Record<TaskId, { card: string; count: string }> = {
+const tone: Record<TTaskId, { card: string; count: string }> = {
   overdue: { card: 'bg-task-overdue-bg', count: 'text-task-overdue' },
   'pending-manual': { card: 'bg-task-manual-bg', count: 'text-task-manual' },
   'pending-auto': { card: 'bg-task-auto-bg', count: 'text-task-auto' },
   completed: { card: 'bg-task-done-bg', count: 'text-task-done' },
 }
 
-export function TaskStatCard({ task }: { task: TaskStat }) {
+export function TaskStatCard({ task }: { task: ITaskStat }) {
   const colors = tone[task.id]
 
   return (

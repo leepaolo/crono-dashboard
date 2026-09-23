@@ -1,48 +1,48 @@
 import signalTagsJson from './signalTags.json'
 import signalsJson from './signals.json'
 import usersJson from './users.json'
-import type { Signal, SignalSegment, SignalTag, SignalTagId, SignalTextWeight, User } from '../types'
+import type { ISignal, ISignalSegment, ISignalTag, TSignalTagId, TSignalTextWeight, IUser } from '../types'
 
 const signalTagIds = ['role-change', 'company-change', 'website-view'] as const
 const textWeights = ['bold', 'semibold'] as const
 
 export interface SignalView {
-  signal: Signal
-  user?: User
-  tag: SignalTag
+  signal: ISignal
+  user?: IUser
+  tag: ISignalTag
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null
 }
 
-function isSignalTagId(value: string): value is SignalTagId {
+function isSignalTagId(value: string): value is TSignalTagId {
   return (signalTagIds as readonly string[]).includes(value)
 }
 
-function isTextWeight(value: string): value is SignalTextWeight {
+function isTextWeight(value: string): value is TSignalTextWeight {
   return (textWeights as readonly string[]).includes(value)
 }
 
-function parseUser(value: unknown): User {
+function parseUser(value: unknown): IUser {
   if (!isRecord(value) || typeof value.id !== 'string' || typeof value.name !== 'string' || typeof value.role !== 'string') {
     throw new Error('Utente non valido')
   }
   return { id: value.id, name: value.name, role: value.role }
 }
 
-function parseSignalTag(value: unknown): SignalTag {
+function parseSignalTag(value: unknown): ISignalTag {
   if (!isRecord(value) || typeof value.id !== 'string' || typeof value.label !== 'string' || !isSignalTagId(value.id)) {
     throw new Error('Tag signal non valido')
   }
   return { id: value.id, label: value.label }
 }
 
-function parseSegment(value: unknown): SignalSegment {
+function parseSegment(value: unknown): ISignalSegment {
   if (!isRecord(value) || typeof value.text !== 'string' || typeof value.weight !== 'string' || !isTextWeight(value.weight)) {
     throw new Error('Segmento signal non valido')
   }
-  const segment: SignalSegment = { text: value.text, weight: value.weight }
+  const segment: ISignalSegment = { text: value.text, weight: value.weight }
   if (value.highlight !== undefined) {
     if (typeof value.highlight !== 'boolean') throw new Error('Highlight signal non valido')
     segment.highlight = value.highlight
@@ -50,7 +50,7 @@ function parseSegment(value: unknown): SignalSegment {
   return segment
 }
 
-function parseSignal(value: unknown): Signal {
+function parseSignal(value: unknown): ISignal {
   if (
     !isRecord(value) ||
     typeof value.id !== 'string' ||
@@ -65,7 +65,7 @@ function parseSignal(value: unknown): Signal {
     throw new Error('Signal non valido')
   }
 
-  const signal: Signal = {
+  const signal: ISignal = {
     id: value.id,
     avatar: value.avatar,
     segments: value.segments.map(parseSegment),

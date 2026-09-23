@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import steps from '../../data/onboarding.json'
-import type { OnboardingStepData } from '../../types'
+import type { IOnboardingStepData } from '../../types'
 import { OnboardingStep } from './OnboardingStep'
 
 export function OnboardingPanel({ className = '' }: { className?: string }) {
@@ -13,7 +13,7 @@ export function OnboardingPanel({ className = '' }: { className?: string }) {
         Onboarding
       </h2>
       <div className="absolute top-onboarding-steps-top left-onboarding-inset flex h-onboarding-steps-h w-onboarding-steps flex-col gap-onboarding-gap">
-        {(steps as OnboardingStepData[]).map((step, index) => (
+        {(steps as IOnboardingStepData[]).map((step, index) => (
           <Fragment key={step.id}>
             <OnboardingStep step={step} />
             {index < steps.length - 1 ? (

@@ -1,6 +1,6 @@
-import type { OnboardingStepData } from '../../types'
+import type { IOnboardingStepData } from '../../types'
 
-export function OnboardingStep({ step }: { step: OnboardingStepData }) {
+export function OnboardingStep({ step }: { step: IOnboardingStepData }) {
   return (
     <div className="flex h-onboarding-row-h w-onboarding-steps shrink-0 items-center justify-between pr-onboarding-row-pr">
       <div className="flex h-onboarding-row-h items-center gap-onboarding-gap">

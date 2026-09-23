@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import tasks from '../../data/tasks.json'
-import type { TaskStat } from '../../types'
+import type { ITaskStat } from '../../types'
 import { TaskStatCard } from './TaskStatCard'
 
 export function TodaysTasks({ className = '' }: { className?: string }) {
@@ -11,7 +11,7 @@ export function TodaysTasks({ className = '' }: { className?: string }) {
     >
       <h2 className="text-tasks-title text-navy">Today’s tasks</h2>
       <div className="flex h-task-card-h items-center justify-between">
-        {(tasks as TaskStat[]).map((task, index) => (
+        {(tasks as ITaskStat[]).map((task, index) => (
           <Fragment key={task.id}>
             {index > 0 ? (
               <span aria-hidden="true" className="h-task-card-h w-px shrink-0 bg-action-menu-border" />

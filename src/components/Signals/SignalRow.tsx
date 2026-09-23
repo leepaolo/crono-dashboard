@@ -1,14 +1,14 @@
 import type { SignalView } from "../../data/readSignals";
-import type { SignalSegment, SignalTagId } from "../../types";
+import type { ISignalSegment, TSignalTagId } from "../../types";
 import { SignalActionPopover } from "./SignalActionPopover";
 
-const tagColorClass: Record<SignalTagId, string> = {
+const tagColorClass: Record<TSignalTagId, string> = {
   "role-change": "text-role-change",
   "company-change": "text-company-change",
   "website-view": "text-website-view",
 };
 
-function segmentClass(segment: SignalSegment) {
+function segmentClass(segment: ISignalSegment) {
   const weight =
     segment.weight === "bold" ? "text-signal-name" : "text-signal-body";
   const color = segment.highlight ? "text-brand" : "text-ink";

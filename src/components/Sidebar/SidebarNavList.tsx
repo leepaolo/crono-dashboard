@@ -1,6 +1,6 @@
-import type { NavItem } from '../../types'
+import type { INavItem } from '../../types'
 
-export function SidebarNavList({ items }: { items: NavItem[] }) {
+export function SidebarNavList({ items }: { items: INavItem[] }) {
   return (
     <nav aria-label="Principale" className="w-sidebar shrink-0">
       <ul className="flex h-nav-h flex-col gap-nav-gap">

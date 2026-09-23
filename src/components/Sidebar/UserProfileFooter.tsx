@@ -1,6 +1,6 @@
-import type { SidebarUser } from "../../types";
+import type { ISidebarUser } from "../../types";
 
-export function UserProfileFooter({ name, role, avatar }: SidebarUser) {
+export function UserProfileFooter({ name, role, avatar }: ISidebarUser) {
   return (
     <div className="mt-auto flex h-footer-h w-sidebar shrink-0 items-center gap-footer-gap border-t border-line">
       <div className="flex h-profile-h w-sidebar items-center gap-profile-gap rounded-profile px-profile-x py-profile-y">

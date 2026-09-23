@@ -1,6 +1,6 @@
-import type { Metric, MetricId } from '../../types'
+import type { IMetric, TMetricId } from '../../types'
 
-const tone: Record<MetricId, { value: string; fill: string; track: string }> = {
+const tone: Record<TMetricId, { value: string; fill: string; track: string }> = {
   contacts: { value: 'text-company-change', fill: 'bg-company-change', track: 'bg-metric-track' },
   companies: { value: 'text-metric-companies', fill: 'bg-metric-companies', track: 'bg-metric-track' },
   activities: { value: 'text-role-change', fill: 'bg-role-change', track: 'bg-metric-activities-track' },
@@ -9,7 +9,7 @@ const tone: Record<MetricId, { value: string; fill: string; track: string }> = {
   pipeline: { value: 'text-task-done', fill: 'bg-task-done', track: 'bg-insequenze-bg' },
 }
 
-export function MetricCard({ metric }: { metric: Metric }) {
+export function MetricCard({ metric }: { metric: IMetric }) {
   const colors = tone[metric.id]
   const progress = Math.min(100, (metric.value / metric.target) * 100)
 

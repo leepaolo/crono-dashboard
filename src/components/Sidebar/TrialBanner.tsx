@@ -1,6 +1,6 @@
-import type { TrialBannerData } from "../../types";
+import type { ITrialBannerData } from "../../types";
 
-export function TrialBanner({ active, message, action }: TrialBannerData) {
+export function TrialBanner({ active, message, action }: ITrialBannerData) {
   if (!active) return null;
 
   return (

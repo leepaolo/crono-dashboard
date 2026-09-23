@@ -1,5 +1,5 @@
 import metrics from '../../data/metrics.json'
-import type { Metric } from '../../types'
+import type { IMetric } from '../../types'
 import { MetricCard } from './MetricCard'
 
 export function PerformancePanel({ className = '' }: { className?: string }) {
@@ -16,7 +16,7 @@ export function PerformancePanel({ className = '' }: { className?: string }) {
         </button>
       </div>
       <div className="grid grid-cols-2 gap-2">
-        {(metrics as Metric[]).map((metric) => (
+        {(metrics as IMetric[]).map((metric) => (
           <MetricCard key={metric.id} metric={metric} />
         ))}
       </div>
