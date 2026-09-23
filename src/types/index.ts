@@ -50,6 +50,19 @@ export interface SignalSegment {
   highlight?: boolean
 }
 
+export type MetricId = 'contacts' | 'companies' | 'activities' | 'meetings' | 'deals' | 'pipeline'
+
+export type Metric = {
+  id: MetricId
+  label: string
+  value: number
+  target: number
+  valueLabel: string
+  targetLabel: string
+  icon?: string
+  info?: boolean
+}
+
 export interface Signal {
   id: string
   userId?: string

@@ -1,1 +1,56 @@
-[]
+[
+  {
+    "id": "contacts",
+    "label": "Contacts engaged",
+    "value": 0,
+    "target": 500,
+    "valueLabel": "0",
+    "targetLabel": "500",
+    "icon": "/img/contact-engage.svg",
+    "info": true
+  },
+  {
+    "id": "companies",
+    "label": "Companies engaged",
+    "value": 0,
+    "target": 500,
+    "valueLabel": "0",
+    "targetLabel": "500",
+    "icon": "/img/companies-engage.svg"
+  },
+  {
+    "id": "activities",
+    "label": "Activities",
+    "value": 1000,
+    "target": 2000,
+    "valueLabel": "1000",
+    "targetLabel": "2000",
+    "icon": "/img/task.svg"
+  },
+  {
+    "id": "meetings",
+    "label": "Meetings",
+    "value": 20,
+    "target": 30,
+    "valueLabel": "20",
+    "targetLabel": "30",
+    "icon": "/img/camera.svg"
+  },
+  {
+    "id": "deals",
+    "label": "Deals",
+    "value": 100,
+    "target": 200,
+    "valueLabel": "100",
+    "targetLabel": "200",
+    "icon": "/img/deals-kpi.svg"
+  },
+  {
+    "id": "pipeline",
+    "label": "Pipeline",
+    "value": 50,
+    "target": 100,
+    "valueLabel": "€50K",
+    "targetLabel": "100K"
+  }
+]

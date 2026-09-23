@@ -32,6 +32,12 @@
   --color-task-done-bg: #e8f5d9;
   --color-task-done: #1a9d6e;
   --color-signals-scroll: #e7e9f2;
+  --color-metric-target: #afb5bf;
+  --color-metric-track: #eaf3fb;
+  --color-metric-companies: #3b58db;
+  --color-metric-meetings: #e2ad13;
+  --color-metric-activities-track: #f1eaff;
+  --color-metric-deals-track: #fae6f8;
 
   --text-nav: 14px;
   --text-nav--line-height: 18px;
@@ -109,6 +115,10 @@
   --text-replies-count--line-height: 44px;
   --text-replies-count--font-weight: 500;
   --text-replies-count--letter-spacing: 0px;
+  --text-metric-value: 16px;
+  --text-metric-value--line-height: 24px;
+  --text-metric-value--font-weight: 500;
+  --text-metric-value--letter-spacing: 0px;
 
   --spacing-stage: 1440px;
   --spacing-sidebar: 192px;
@@ -206,6 +216,10 @@
   --shadow-action-menu: 0 0 0 1px var(--color-action-menu-border), 0 8px 24px rgb(48 51 70 / 12%);
   --spacing-performance: 408px;
   --spacing-performance-h: 293px;
+  --spacing-metric: 184px;
+  --spacing-metric-h: 71px;
+  --spacing-metric-bar-h: 3px;
+  --radius-metric-bar: 3px;
   --spacing-onboarding: 408px;
   --spacing-onboarding-h: 412px;
 }
