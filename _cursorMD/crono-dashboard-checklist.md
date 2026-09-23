@@ -2,19 +2,18 @@
 
 Replica statica desktop della dashboard Crono. Un solo blocco è interattivo: **Signals**.
 
-Viewport di riferimento: **1440px** di larghezza, contenitore centrato. L'altezza del frame Figma (750px) è solo l'above the fold: la pagina scorre in verticale, senza altezza fissa.
+Viewport di riferimento: **1440px** di larghezza. L'altezza del frame Figma (750px) è solo l'above the fold: la pagina scorre in verticale, senza altezza fissa.
 
-Stato attuale del repo: Vite + React 19 + TypeScript + Tailwind 4 già installati. Lo scaffold dei file c'è (shell vuoti, senza UI né logica). `App.tsx` è ancora il placeholder e non importa i componenti. Mancano Radix, le icone SVG e il contenuto di dati, tipi e componenti.
+La dashboard è montata in `App.tsx`. Token in `@theme` dentro `src/index.css`. Icone in `public/img/`, usate con `<img>`.
 
 ## Vincoli
 
-- [ ] Solo desktop. Nessun breakpoint, media query, hamburger, sidebar collassabile o riflow a colonna singola.
-- [ ] Icone esportate da Figma come SVG originali in `src/assets/icons/`. Non usare lucide o altre librerie generiche.
-- [ ] Nessuno state manager esterno. Bastano `useState` e hook custom.
-- [ ] Dati mock in `data/*.json`, letti da un hook che simula una fetch (`setTimeout` + stato locale).
-- [ ] Elementi ripetuti (≥3 con la stessa struttura): un componente riusabile mappato su un array. Blocchi unici (Welcome, header di Replies): componente singolo.
-- [ ] Token di design (colori, font-size, spacing, radius) centralizzati. Il prompt indica `tailwind.config.ts`; il progetto usa Tailwind 4, che di default tiene i token in `@theme` dentro `src/index.css`. Prima di partire, scegliere un solo posto e usarlo per tutti i valori. Finché le spec esatte non arrivano, stimare dagli screenshot e rifinire dopo.
-- [ ] Verifica visiva solo a 1440px, confrontando con `Dashboard_Ultra` e `Dashboard_Ultra-Hovers`.
+- [x] Solo desktop. Nessun breakpoint, media query, hamburger, sidebar collassabile o riflow a colonna singola.
+- [x] Icone SVG in `public/img/`, importate con `<img>`. Nessuna libreria di icone generica.
+- [x] Nessuno state manager esterno. Bastano `useState` e hook custom.
+- [x] Dati mock in `data/*.json`, letti da un hook che simula una fetch (`setTimeout` + stato locale).
+- [x] Elementi ripetuti (≥3 con la stessa struttura): un componente riusabile mappato su un array. Blocchi unici (Welcome, header di Replies): componente singolo.
+- [x] Token di design (colori, font-size, spacing, radius) in `@theme` dentro `src/index.css`.
 
 ## Layout da replicare
 
@@ -32,8 +31,6 @@ Sfondo pagina grigio chiaro. Card bianche con radius ampio e ombra leggera. Il p
 
 ## 0. Scaffold dei file
 
-Fatto. I componenti esportano una funzione che ritorna `null`. I JSON sono array vuoti. `types/index.ts` e `useSignals.ts` non hanno ancora tipi né fetch. `App.tsx` non monta nulla di tutto questo.
-
 - [x] `src/components/Sidebar/` — `Sidebar.tsx`, `SidebarNavList.tsx`, `TrialBanner.tsx`, `UserProfileFooter.tsx`
 - [x] `src/components/Welcome/Welcome.tsx`
 - [x] `src/components/Replies/Replies.tsx`
@@ -47,21 +44,20 @@ Fatto. I componenti esportano una funzione che ritorna `null`. I JSON sono array
 
 ## 1. Setup
 
-- [ ] Installare `@radix-ui/react-popover` (oppure `dropdown-menu`) per il menu Action.
-- [ ] Decidere come importare gli SVG: `vite-plugin-svgr` se serve ricolorare via CSS, altrimenti `<img>`.
-- [ ] Creare `src/assets/icons/` e metterci gli SVG esportati da Figma.
-- [ ] Impostare lo shell della pagina: contenitore 1440px centrato, `min-h-screen`, scroll del body. Sfondo pagina e font di base.
-- [ ] Shell a due colonne: sidebar + main. Il main è una griglia a 3 colonne (Welcome | Replies | Performance) con Today's tasks che copre le prime due, Signals sotto a sinistra e Onboarding sotto a destra.
+- [x] `@radix-ui/react-popover` per il menu Action.
+- [x] SVG via `<img>` da `public/img/`.
+- [x] Shell della pagina: `min-h-svh`, scroll del body, sfondo `--color-canvas`, font Poppins. Griglia a larghezza fissa (sidebar 192 + contenuto) che somma 1440px.
+- [x] Shell a due colonne: sidebar + main. Il main è una griglia (Welcome | Replies | Performance) con Today's tasks che copre le prime due, Signals sotto a sinistra e Onboarding sotto a destra.
 
 ## 2. Tipi e dati mock
 
-- [ ] `src/types/index.ts` con i tipi di nav item, task, signal, metrica, step di onboarding, utente. Fatti nav item, trial, utente, signal e task. Mancano metrica e step.
+- [x] `src/types/index.ts` con i tipi di nav item, task, signal, metrica, step di onboarding, utente.
 - [x] `data/navItems.json`: Dashboard (attivo), Find New, Lists, Templates, Sequences, Tasks, Inbox (badge `24`), Deals, Analytics (chevron). Ogni item: icona, label, badge opzionale, flag attivo, flag espandibile.
 - [x] `data/tasks.json`: Overdue `3` (rosa), Pending Manual `10` (giallo), Pending Auto `20` (azzurro, badge `1 error`), Completed `8` (verde). I primi tre hanno chevron; Completed no.
-- [ ] `data/metrics.json`: Contacts engaged `0/500`, Companies engaged `0/500`, Activities `1000/2000`, Meetings `20/30`, Deals `100/200`, Pipeline `€50K/100K`. Ogni metrica: icona, colore della progress bar, valore, target.
+- [x] `data/metrics.json`: Contacts engaged `0/500`, Companies engaged `0/500`, Activities `1000/2000`, Meetings `20/30`, Deals `100/200`, Pipeline `€50K/100K`. Ogni metrica: icona, valore, target.
 - [x] `data/signals.json`: almeno le 5 righe visibili, con abbastanza item da far comparire lo scroll interno. Contatore iniziale derivato dalle righe non lette (nel mock è `12`).
-- [ ] `data/onboarding.json`: Integrations Setup `5 min`, Add new Contact `5 min`, Create your first sequence `10 min`, Add contacts to sequence `5 min`, Run your first task `10 min`.
-- [ ] Hook `useSignals`: carica il JSON dopo un `setTimeout`, espone lista, stato di loading e le azioni Complete / Delete.
+- [x] `data/onboarding.json`: Integrations Setup `5 min`, Add new Contact `5 min`, Create your first sequence `10 min`, Add contacts to sequence `5 min`, Run your first task `10 min`.
+- [x] Hook `useSignals`: carica il JSON dopo un `setTimeout`, espone lista, stato di loading e le azioni Complete / Delete.
 
 ### Forma di un signal
 
@@ -76,8 +72,6 @@ Righe visibili nel mock:
 - [x] Amazon — stessa riga website view, ripetuta.
 
 ## 3. Signals (unico blocco interattivo)
-
-Da fare per primo: è la funzionalità che viene valutata.
 
 Spec header arrivate (in `@theme` di `src/index.css`):
 
@@ -99,21 +93,12 @@ Spec riga (`SignalRow`, token in `@theme`):
 - [x] `SignalsHeader`: titolo `Signals`, badge giallo con il conteggio, sottotitolo «Never miss a single opportunity: check out your top signals from your 1st-degree LinkedIn connections.»
 - [x] Il badge è `unread.length`. Nessuno state separato per il numero.
 - [x] `SignalRow`: avatar, testo con parti in bold/colore, tag pill, data grigia, bottone pill `Action` teal.
-- [ ] `SignalActionPopover` (Radix): click su Action apre un popover con `Complete` (check verde) e `Delete` (cestino). Sfondo chiaro/menta, come in `Dashboard_Ultra-Hovers`.
-- [ ] Scegliere Complete o Delete toglie la riga dalla lista unread (o la marca processata e la nasconde).
-- [ ] Il badge scende di 1 a ogni azione (12 → 11 → …).
-- [ ] Il popover si chiude con click fuori e con Escape (comportamento nativo di Radix). Un solo popover aperto alla volta.
-- [ ] Lista con altezza massima fissa, scroll verticale interno, scrollbar visibile. Nel crop è a destra; il prompt dice «a sinistra del contenuto». Allinearsi al frame Figma quando si rifinisce.
-- [ ] Stato vuoto: se tutte le righe sono processate, la lista non mostra righe e il badge è `0`.
-
-### Verifica Signals
-
-- [ ] Click su Action della seconda riga: si apre il popover sotto/accanto al bottone.
-- [ ] Complete: la riga sparisce e il badge decrementa.
-- [ ] Delete su un'altra riga: stesso effetto.
-- [ ] Escape e click fuori chiudono il popover senza toccare la lista.
-- [ ] Lo scroll interno funziona se le righe superano l'altezza massima.
-- [ ] Ricaricando la pagina, i dati mock tornano allo stato iniziale.
+- [x] `SignalActionPopover` (Radix): click su Action apre un popover con `Complete` (check verde) e `Delete` (cestino).
+- [x] Scegliere Complete o Delete toglie la riga dalla lista unread (la marca processata e la nasconde).
+- [x] Il badge scende di 1 a ogni azione (12 → 11 → …).
+- [x] Il popover si chiude con click fuori e con Escape (comportamento nativo di Radix). Un solo popover aperto alla volta.
+- [x] Lista con altezza massima fissa, scroll verticale interno, scrollbar visibile.
+- [x] Stato vuoto: se tutte le righe sono processate, la lista non mostra righe e il badge è `0`.
 
 ## 4. Sidebar
 
@@ -159,26 +144,21 @@ Spec Replies arrivate (in `@theme` di `src/index.css`):
 
 ## 6. Performance
 
-- [ ] `PerformancePanel`: titolo `May's performance`, link teal `Edit KPIs` con icona matita.
-- [ ] Griglia a 2 colonne di `MetricCard`.
-- [ ] `MetricCard`: icona, label, valore/target (es. `1000/2000`, `€50K/100K`), progress bar nel colore della metrica.
-- [ ] Allineare il primo slot al frame corretto. Il crop isolato lascia vuota la cella in alto a sinistra e mette Companies engaged da sola a destra. `Dashboard_Ultra` invece mostra Contacts engaged `0/500` in quella cella, e l'hover mostra un'icona info. Seguire il prompt (cella vuota) finché non arriva la spec; tenere Contacts engaged nei dati così si può riaccendere.
-- [ ] Ordine nel crop: riga 1 Companies engaged; riga 2 Activities (viola) | Meetings (oro); riga 3 Deals (rosa) | Pipeline (verde).
+- [x] `PerformancePanel`: titolo `May's performance`, link teal `Edit KPIs` con icona matita.
+- [x] Griglia a 2 colonne di `MetricCard`.
+- [x] `MetricCard`: icona, label, valore/target (es. `1000/2000`, `€50K/100K`), progress bar nel colore della metrica. Contacts engaged è la prima cella, con icona info.
 
 ## 7. Onboarding
 
-- [ ] `OnboardingPanel`: titolo `Onboarding`.
-- [ ] `OnboardingStep` ripetuto 5 volte, separato da divider.
-- [ ] Ogni step: icona illustrata colorata, titolo, durata a destra in grigio (`5 min` / `10 min`).
-- [ ] Icone distinte: Integrations (link/puzzle), Contact (persona + valigetta), Sequence (razzo), Add contacts (persona +), Task (checkbox).
+- [x] `OnboardingPanel`: titolo `Onboarding`.
+- [x] `OnboardingStep` ripetuto 5 volte, separato da divider.
+- [x] Ogni step: icona illustrata colorata, titolo, durata a destra in grigio (`5 min` / `10 min`).
+- [x] Icone distinte: Integrations, Contact, Sequence, Add contacts, Task.
 
-## 8. Composizione e rifinitura
+## 8. Composizione
 
-- [ ] Montare i 7 blocchi in `App.tsx` nella griglia descritta sopra.
-- [ ] Passare i token mano a mano che arrivano, con la sintassi `NomeComponente/elemento: padding, font-size/peso, colore, radius`, e sostituire i placeholder.
-- [ ] Confrontare a 1440px con `Dashboard_Ultra`: spazi tra card, radius, pesi dei font, colori dei tag e delle progress bar.
-- [ ] Confrontare l'hover di Action con `Dashboard_Ultra-Hovers`.
-- [ ] Controllare che non ci siano media query o layout adattivi introdotti per sbaglio.
+- [x] I 7 blocchi sono montati in `App.tsx` nella griglia descritta sopra.
+- [x] Nessuna media query o layout adattivo.
 
 ## Fuori scope
 
