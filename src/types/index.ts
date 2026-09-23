@@ -90,3 +90,9 @@ export interface ISignal {
   date: string;
   unread: boolean;
 }
+
+export interface ISignalView {
+  signal: ISignal;
+  user?: IUser;
+  tag: ISignalTag;
+}

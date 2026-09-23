@@ -1,5 +1,4 @@
-import type { SignalView } from "../../data/readSignals";
-import type { ISignalSegment, TSignalTagId } from "../../types";
+import type { ISignalSegment, ISignalView, TSignalTagId } from "../../types";
 import { SignalActionPopover } from "./SignalActionPopover";
 
 const tagColorClass: Record<TSignalTagId, string> = {
@@ -23,7 +22,7 @@ export function SignalRow({
   onMenuOpenChange,
   onComplete,
   onDelete,
-}: SignalView & {
+}: ISignalView & {
   menuOpen: boolean;
   onMenuOpenChange: (open: boolean) => void;
   onComplete: () => void;

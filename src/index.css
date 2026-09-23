@@ -213,7 +213,8 @@
   --radius-action-menu-item: 8px;
   --spacing-action-menu-item-gap: 8px;
   --spacing-action-menu-item-p: 8px;
-  --shadow-action-menu: 0 0 0 1px var(--color-action-menu-border), 0 8px 24px rgb(48 51 70 / 12%);
+  --shadow-action-menu:
+    0 0 0 1px var(--color-action-menu-border), 0 8px 24px rgb(48 51 70 / 12%);
   --spacing-performance: 408px;
   --spacing-performance-h: 293px;
   --spacing-metric: 184px;
@@ -231,6 +232,9 @@
   --spacing-onboarding-row-pr: 8px;
   --spacing-onboarding-icon: 40px;
 }
+
+/* ------------- UTILITY ------------- */
+/*  SignalsPanel.tsx used this utility to style the scrollbar */
 
 @utility scrollbar-signals {
   scrollbar-width: thin;

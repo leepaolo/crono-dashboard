@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
-import { signalViews, type SignalView } from '../data/readSignals'
+import { signalViews } from '../data/readSignals'
+import type { ISignalView } from '../types'
 
 const FETCH_DELAY_MS = 300
 
-function copyViews(views: SignalView[]): SignalView[] {
+function copyViews(views: ISignalView[]): ISignalView[] {
   return views.map((view) => ({
     ...view,
     signal: {
@@ -13,14 +14,14 @@ function copyViews(views: SignalView[]): SignalView[] {
   }))
 }
 
-function markProcessed(views: SignalView[], id: string): SignalView[] {
+function markProcessed(views: ISignalView[], id: string): ISignalView[] {
   return views.map((view) =>
     view.signal.id === id ? { ...view, signal: { ...view.signal, unread: false } } : view,
   )
 }
 
 export function useSignals() {
-  const [views, setViews] = useState<SignalView[]>([])
+  const [views, setViews] = useState<ISignalView[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
