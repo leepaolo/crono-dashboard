@@ -242,6 +242,11 @@
     font-family: var(--font-sans);
   }
 
+  body {
+    min-height: 100svh;
+    background-color: var(--color-canvas);
+  }
+
   a,
   button {
     cursor: pointer;
