@@ -43,7 +43,7 @@
     "target": 200,
     "valueLabel": "100",
     "targetLabel": "200",
-    "icon": "/img/deals-kpi.svg"
+    "icon": "/img/task.svg"
   },
   {
     "id": "pipeline",
