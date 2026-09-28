@@ -8,7 +8,44 @@ Atteso: Complete lascia la riga e toglie il pallino. Delete la rimuove. Il badge
 
 `signals` deve essere `views`. Il filtro unread solo per `unreadCount`.
 
-`signal-10`, `signal-11`, `signal-12` hanno `unread: false`: non compaiono.
+`signal-10`, `signal-11`, `signal-12` hanno `unread: false`: non comparivano.
+
+### Modifiche
+
+`src/hooks/useSignals.ts` espone tutte le view. Il badge resta il conteggio degli unread.
+
+```ts
+const unreadCount = views.filter((view) => view.signal.unread).length
+
+return {
+  signals: views,
+  unreadCount,
+}
+```
+
+`src/components/Signals/SignalRow.tsx`: riga letta con `opacity-60`. Passa `isRead` al menu.
+
+```tsx
+className={`... ${signal.unread ? '' : 'opacity-60'}`}
+isRead={!signal.unread}
+```
+
+`src/components/Signals/SignalActionPopover.tsx`: se la riga è letta, Complete non c'è. Resta Delete.
+
+```tsx
+{!isRead ? (
+  <button type="button" onClick={onComplete}>Complete</button>
+) : null}
+```
+
+### Comportamento corretto
+
+| Azione | Prima (BUG) | Ora (CORRETTO) |
+| --- | --- | --- |
+| Complete unread signal | Segnale sparisce | Segnale rimane visibile, opacità 60%, solo Delete disponibile |
+| Complete read signal | N/A (già nascosto) | Bottone "Complete" non mostrato |
+| Delete any signal | Segnale rimosso | Segnale rimosso (comportamento invariato) |
+| Unread counter | Corretto | Corretto (sempre derivato) |
 
 
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -22,7 +59,7 @@ Atteso: Complete lascia la riga e toglie il pallino. Delete la rimuove. Il badge
 3. Delete: `deleteSignal` toglie l'id. L'hook toglie la riga.
 4. Errore in fetch: il pannello mostra il messaggio al posto della lista.
 
-Il filtro di N1 resta: l'hook espone `signals: views.filter(unread)`, quindi Complete aggiorna la riga e poi la nasconde.
+Il filtro di N1 non c'è più: l'hook espone `signals: views`. Complete aggiorna la riga e la lascia in lista.
 
 ### Snippet
 
