@@ -64,11 +64,13 @@ export function SignalActionPopover({
   onOpenChange,
   onComplete,
   onDelete,
+  isRead,
 }: {
   open: boolean
   onOpenChange: (open: boolean) => void
   onComplete: () => void
   onDelete: () => void
+  isRead: boolean
 }) {
   return (
     <Popover.Root open={open} onOpenChange={onOpenChange}>
@@ -87,14 +89,16 @@ export function SignalActionPopover({
           sideOffset={8}
           className="z-50 flex h-action-menu-h w-action-menu flex-col rounded-action-menu bg-surface p-action-menu-p shadow-action-menu outline-none"
         >
-          <Popover.Close asChild>
-            <button type="button" className={itemClass} onClick={onComplete}>
-              <span>Complete</span>
-              <span className="inline-flex size-6 shrink-0 items-center justify-center">
-                <CheckIcon />
-              </span>
-            </button>
-          </Popover.Close>
+          {!isRead ? (
+            <Popover.Close asChild>
+              <button type="button" className={itemClass} onClick={onComplete}>
+                <span>Complete</span>
+                <span className="inline-flex size-6 shrink-0 items-center justify-center">
+                  <CheckIcon />
+                </span>
+              </button>
+            </Popover.Close>
+          ) : null}
           <Popover.Close asChild>
             <button type="button" className={itemClass} onClick={onDelete}>
               <span>Delete</span>

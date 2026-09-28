@@ -30,7 +30,9 @@ export function SignalRow({
 }) {
   return (
     <li className="mb-signal-row-b w-full shrink-0 border-b border-line px-signal-row-x last:mb-0">
-      <div className="mb-signal-row-b flex w-full items-center gap-signal-main-gap">
+      <div
+        className={`mb-signal-row-b flex w-full items-center gap-signal-main-gap ${signal.unread ? '' : 'opacity-60'}`}
+      >
         <div className="flex min-w-0 flex-1 items-center gap-signal-identity-gap">
           <div className="relative size-signal-avatar shrink-0">
             <img
@@ -83,6 +85,7 @@ export function SignalRow({
             onOpenChange={onMenuOpenChange}
             onComplete={onComplete}
             onDelete={onDelete}
+            isRead={!signal.unread}
           />
         </div>
       </div>

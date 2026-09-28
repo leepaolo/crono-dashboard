@@ -50,11 +50,11 @@ export function useSignals() {
     }
   }, [])
 
-  const unread = views.filter((view) => view.signal.unread)
+  const unreadCount = views.filter((view) => view.signal.unread).length
 
   return {
-    signals: unread,
-    unreadCount: unread.length,
+    signals: views,
+    unreadCount,
     isLoading,
     error,
     complete,
