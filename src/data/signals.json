@@ -4,11 +4,14 @@
     "userId": "robert-smith",
     "avatar": "/img/amazon.png",
     "segments": [
-      { "text": " changed role from SDR to Senior SDR at WeRoad", "weight": "semibold" }
+      {
+        "text": " changed role from SDR to Senior SDR at WeRoad",
+        "weight": "semibold"
+      }
     ],
     "tagId": "role-change",
     "inSequence": true,
-    "date": "Apr 2, 2025",
+    "date": "Apr 1, 2025",
     "unread": true
   },
   {
@@ -16,7 +19,10 @@
     "userId": "robert-smith",
     "avatar": "/img/amazon.png",
     "segments": [
-      { "text": " changed role from SDR to Senior SDR at WeRoad", "weight": "semibold" }
+      {
+        "text": " changed role from SDR to Senior SDR at WeRoad",
+        "weight": "semibold"
+      }
     ],
     "tagId": "company-change",
     "inSequence": true,
@@ -28,11 +34,14 @@
     "userId": "robert-smith",
     "avatar": "/img/amazon.png",
     "segments": [
-      { "text": " changed role from SDR to Senior SDR at WeRoad", "weight": "semibold" }
+      {
+        "text": " changed role from SDR to Senior SDR at WeRoad",
+        "weight": "semibold"
+      }
     ],
     "tagId": "role-change",
     "inSequence": false,
-    "date": "Apr 2, 2025",
+    "date": "Apr 3, 2025",
     "unread": true
   },
   {
@@ -47,7 +56,7 @@
     ],
     "tagId": "website-view",
     "inSequence": false,
-    "date": "Apr 2, 2025",
+    "date": "Apr 4, 2025",
     "unread": true
   },
   {
@@ -62,7 +71,7 @@
     ],
     "tagId": "website-view",
     "inSequence": false,
-    "date": "Apr 2, 2025",
+    "date": "Apr 5, 2025",
     "unread": true
   },
   {
@@ -74,7 +83,7 @@
     ],
     "tagId": "role-change",
     "inSequence": true,
-    "date": "Apr 2, 2025",
+    "date": "Apr 6, 2025",
     "unread": true
   },
   {
@@ -86,7 +95,7 @@
     ],
     "tagId": "company-change",
     "inSequence": true,
-    "date": "Apr 2, 2025",
+    "date": "Apr 7, 2025",
     "unread": true
   },
   {
@@ -98,7 +107,7 @@
     ],
     "tagId": "role-change",
     "inSequence": false,
-    "date": "Apr 2, 2025",
+    "date": "Apr 8, 2025",
     "unread": true
   },
   {
@@ -113,7 +122,7 @@
     ],
     "tagId": "website-view",
     "inSequence": false,
-    "date": "Apr 2, 2025",
+    "date": "Apr 9, 2025",
     "unread": true
   },
   {
@@ -121,12 +130,15 @@
     "avatar": "/img/amazon.png",
     "segments": [
       { "text": "Luca Rossi", "weight": "bold" },
-      { "text": " changed role from AE to Senior AE at Stripe", "weight": "semibold" }
+      {
+        "text": " changed role from AE to Senior AE at Stripe",
+        "weight": "semibold"
+      }
     ],
     "tagId": "role-change",
     "inSequence": true,
-    "date": "Apr 2, 2025",
-    "unread": true
+    "date": "Apr 10, 2025",
+    "unread": false
   },
   {
     "id": "signal-11",
@@ -140,8 +152,8 @@
     ],
     "tagId": "website-view",
     "inSequence": false,
-    "date": "Apr 2, 2025",
-    "unread": true
+    "date": "Apr 11, 2025",
+    "unread": false
   },
   {
     "id": "signal-12",
@@ -155,7 +167,7 @@
     ],
     "tagId": "website-view",
     "inSequence": false,
-    "date": "Apr 2, 2025",
-    "unread": true
+    "date": "Apr 12, 2025",
+    "unread": false
   }
 ]

@@ -20,6 +20,10 @@ function markProcessed(views: ISignalView[], id: string): ISignalView[] {
   )
 }
 
+function removeSignal(views: ISignalView[], id: string): ISignalView[] {
+  return views.filter((view) => view.signal.id !== id)
+}
+
 export function useSignals() {
   const [views, setViews] = useState<ISignalView[]>([])
   const [loading, setLoading] = useState(true)
@@ -40,6 +44,6 @@ export function useSignals() {
     unreadCount: unread.length,
     loading,
     complete: (id: string) => setViews((current) => markProcessed(current, id)),
-    deleteSignal: (id: string) => setViews((current) => markProcessed(current, id)),
+    deleteSignal: (id: string) => setViews((current) => removeSignal(current, id)),
   }
 }
