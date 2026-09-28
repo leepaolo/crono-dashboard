@@ -1,6 +1,6 @@
 # Review feedback
 
-## 1. Complete e Delete hanno lo stesso effetto visibile
+## N1. Complete e Delete hanno lo stesso effetto visibile
 
 La lista mostra solo `unread: true`. Complete mette `unread: false` e la riga sparisce, come Delete.
 
@@ -10,34 +10,66 @@ Atteso: Complete lascia la riga e toglie il pallino. Delete la rimuove. Il badge
 
 `signal-10`, `signal-11`, `signal-12` hanno `unread: false`: non compaiono.
 
-### Snippet modificati
 
-`src/hooks/useSignals.ts`
+------------------------------------------------------------------------------------------------------------------------------------
+
+## N2. I signal passano da un API finto
+
+`SignalsPanel` non legge il JSON. Chiama l'hook, l'hook chiama `src/api/signals.ts`. Lo stato sta in `currentSignals`.
+
+1. Mount: `getSignals` aspetta 300ms e restituisce tutte le view.
+2. Complete: `completeSignal` mette `unread: false` e ritorna la view. L'hook sostituisce la riga.
+3. Delete: `deleteSignal` toglie l'id. L'hook toglie la riga.
+4. Errore in fetch: il pannello mostra il messaggio al posto della lista.
+
+Il filtro di N1 resta: l'hook espone `signals: views.filter(unread)`, quindi Complete aggiorna la riga e poi la nasconde.
+
+### Snippet
+
+`src/api/signals.ts`
 
 ```ts
-function removeSignal(views: ISignalView[], id: string): ISignalView[] {
-  return views.filter((view) => view.signal.id !== id)
+let currentSignals = [...signals]
+
+export async function getSignals(): Promise<ISignalView[]> {
+  await simulateDelay()
+  return buildSignalViews(currentSignals)
 }
 
-const unread = views.filter((view) => view.signal.unread)
+export async function completeSignal(id: string): Promise<ISignalView> {
+  await simulateDelay()
+  currentSignals[signalIndex] = { ...currentSignals[signalIndex], unread: false }
+  return buildSignalViews([currentSignals[signalIndex]])[0]
+}
 
-return {
-  signals: unread,
-  unreadCount: unread.length,
-  complete: (id: string) => setViews((current) => markProcessed(current, id)),
-  deleteSignal: (id: string) => setViews((current) => removeSignal(current, id)),
+export async function deleteSignal(id: string): Promise<void> {
+  await simulateDelay()
+  currentSignals = currentSignals.filter((s) => s.id !== id)
 }
 ```
 
-`src/data/signals.json`
+`src/components/Signals/SignalsPanel.tsx`
 
-```json
-{ "id": "signal-10", "unread": false }
-{ "id": "signal-11", "unread": false }
-{ "id": "signal-12", "unread": false }
+```tsx
+const { signals, unreadCount, isLoading, error, complete, deleteSignal } = useSignals()
+
+{error ? (
+  <p>Errore nel caricamento dei signals: {error.message}</p>
+) : (
+  <ul>
+    {signals.map((view) => (
+      <SignalRow
+        onComplete={() => { complete(view.signal.id); setOpenSignalId(null) }}
+        onDelete={() => { deleteSignal(view.signal.id); setOpenSignalId(null) }}
+      />
+    ))}
+  </ul>
+)}
 ```
 
-## 3. La sidebar collassa, ma è fuori scope
+------------------------------------------------------------------------------------------------------------------------------------
+
+## N3. La sidebar collassa, ma è fuori scope
 
 Il bottone `«` è solo visivo. La sidebar resta `w-sidebar` (192px).
 
@@ -79,4 +111,24 @@ if (!active || isCollapsed) return null
 className={`... ${isCollapsed ? 'w-16' : 'w-sidebar'}`}
 title={isCollapsed ? name : ''}
 className={`... ${isCollapsed ? 'w-0 overflow-hidden opacity-0' : 'w-auto opacity-100'}`}
+```
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+## N4. Claude può fare commit senza conferma
+
+`.claude/settings.local.json` è nuovo e non tracciato. Non è in `.gitignore`.
+
+Autorizza `git add` e `git commit` senza chiedere.
+
+### Snippet
+
+`.claude/settings.local.json`
+
+```json
+{
+  "permissions": {
+    "allow": ["Bash(git add:*)", "Bash(git commit:*)"]
+  }
+}
 ```
