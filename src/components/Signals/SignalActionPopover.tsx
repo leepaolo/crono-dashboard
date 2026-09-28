@@ -87,7 +87,7 @@ export function SignalActionPopover({
           side="bottom"
           align="end"
           sideOffset={8}
-          className="z-50 flex h-action-menu-h w-action-menu flex-col rounded-action-menu bg-surface p-action-menu-p shadow-action-menu outline-none"
+          className="z-50 flex h-auto w-action-menu flex-col rounded-action-menu bg-surface p-action-menu-p shadow-action-menu outline-none"
         >
           {!isRead ? (
             <Popover.Close asChild>
