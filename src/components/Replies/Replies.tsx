@@ -9,7 +9,7 @@ export function Replies({ className = '' }: { className?: string }) {
   return (
     <section
       aria-label="Replies"
-      className={`flex h-replies-h w-replies flex-col gap-2 rounded-2xl border border-action-menu-border bg-surface p-4 ${className}`}
+      className={`flex h-auto min-h-replies-h w-full flex-col gap-2 rounded-2xl border border-action-menu-border bg-surface p-4 ${className}`}
     >
       <div className="flex h-replies-header-h items-center justify-between">
         <h2 className="text-tasks-title text-navy">Replies</h2>
