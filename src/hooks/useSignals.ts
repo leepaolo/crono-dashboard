@@ -1,40 +1,53 @@
-import { useEffect, useState } from 'react'
-import { signalViews } from '../data/readSignals'
+import { useCallback, useEffect, useState } from 'react'
+import * as signalsApi from '../api/signals'
 import type { ISignalView } from '../types'
-
-const FETCH_DELAY_MS = 300
-
-function copyViews(views: ISignalView[]): ISignalView[] {
-  return views.map((view) => ({
-    ...view,
-    signal: {
-      ...view.signal,
-      segments: view.signal.segments.map((segment) => ({ ...segment })),
-    },
-  }))
-}
-
-function markProcessed(views: ISignalView[], id: string): ISignalView[] {
-  return views.map((view) =>
-    view.signal.id === id ? { ...view, signal: { ...view.signal, unread: false } } : view,
-  )
-}
-
-function removeSignal(views: ISignalView[], id: string): ISignalView[] {
-  return views.filter((view) => view.signal.id !== id)
-}
 
 export function useSignals() {
   const [views, setViews] = useState<ISignalView[]>([])
-  const [loading, setLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<Error | null>(null)
 
   useEffect(() => {
-    const timeoutId = window.setTimeout(() => {
-      setViews(copyViews(signalViews))
-      setLoading(false)
-    }, FETCH_DELAY_MS)
+    let isMounted = true
 
-    return () => window.clearTimeout(timeoutId)
+    signalsApi
+      .getSignals()
+      .then((data) => {
+        if (isMounted) {
+          setViews(data)
+          setIsLoading(false)
+        }
+      })
+      .catch((err) => {
+        if (isMounted) {
+          setError(err instanceof Error ? err : new Error(String(err)))
+          setIsLoading(false)
+        }
+      })
+
+    return () => {
+      isMounted = false
+    }
+  }, [])
+
+  const complete = useCallback(async (id: string) => {
+    try {
+      const updatedView = await signalsApi.completeSignal(id)
+      setViews((current) =>
+        current.map((view) => (view.signal.id === id ? updatedView : view)),
+      )
+    } catch (err) {
+      setError(err instanceof Error ? err : new Error(String(err)))
+    }
+  }, [])
+
+  const deleteSignal = useCallback(async (id: string) => {
+    try {
+      await signalsApi.deleteSignal(id)
+      setViews((current) => current.filter((view) => view.signal.id !== id))
+    } catch (err) {
+      setError(err instanceof Error ? err : new Error(String(err)))
+    }
   }, [])
 
   const unread = views.filter((view) => view.signal.unread)
@@ -42,8 +55,9 @@ export function useSignals() {
   return {
     signals: unread,
     unreadCount: unread.length,
-    loading,
-    complete: (id: string) => setViews((current) => markProcessed(current, id)),
-    deleteSignal: (id: string) => setViews((current) => removeSignal(current, id)),
+    isLoading,
+    error,
+    complete,
+    deleteSignal,
   }
 }
