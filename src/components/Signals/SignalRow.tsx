@@ -73,7 +73,7 @@ export function SignalRow({
             </div>
           </div>
         </div>
-        <div className="flex h-signal-meta-h w-auto shrink-0 items-center justify-end gap-signal-meta-gap">
+        <div className="flex h-signal-meta-h w-signal-meta shrink-0 items-center justify-end gap-signal-meta-gap">
           <time
             dateTime="2025-04-02"
             className="text-signal-date whitespace-nowrap text-muted"

@@ -157,13 +157,12 @@ export async function getSignals(): Promise<ISignalView[]> {
 
 - **Unread Counter**: Derived from state (`signals.filter(s => s.unread).length`), never stored separately
 
-### Responsive Layout
+### Layout & Viewport
 
-- **Figma fidelity preserved at 1440px** (design target viewport)
-- **Fluid layout from 1280px to 1920px**:
-  - Fixed values kept only for: sidebar width (192px), avatars, icons, small spacing
-  - Content areas use flex-based layout (`flex-1`, `min-w-0`) for proportional scaling
-  - No horizontal overflow or clipped text at any supported viewport
+- **Fixed layout optimized for 1440px** (Figma design target)
+- **Desktop-only**: The application uses fixed-width layout matching the provided Figma design
+- **Why not responsive?**: Without explicit viewport specifications (mobile/tablet/desktop breakpoints) and corresponding design comps, making the layout fluid would require design decisions outside the assignment scope and risk breaking the UI
+- Layout uses CSS Grid with fixed column/row values mapped from Figma tokens
 
 ### Sidebar Collapse
 
