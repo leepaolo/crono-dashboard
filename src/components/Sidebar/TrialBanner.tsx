@@ -1,7 +1,12 @@
-import type { ITrialBannerData } from "../../types";
+import type { ITrialBannerData } from '../../types'
 
-export function TrialBanner({ active, message, action }: ITrialBannerData) {
-  if (!active) return null;
+export function TrialBanner({
+  active,
+  message,
+  action,
+  isCollapsed,
+}: ITrialBannerData & { isCollapsed: boolean }) {
+  if (!active || isCollapsed) return null
 
   return (
     <div className="relative mx-auto mt-trial-top h-trial-h w-trial-w shrink-0 overflow-hidden rounded-lg bg-trial px-2.5 py-2">
@@ -19,5 +24,5 @@ export function TrialBanner({ active, message, action }: ITrialBannerData) {
         <img src="/img/upgrade-plan.svg" alt="" className="size-3" />
       </button>
     </div>
-  );
+  )
 }
