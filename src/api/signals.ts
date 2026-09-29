@@ -1,34 +1,14 @@
 import signalTagsJson from '../data/signalTags.json'
 import signalsJson from '../data/signals.json'
 import usersJson from '../data/users.json'
-import type {
-  ISignal,
-  ISignalSegment,
-  ISignalTag,
-  ISignalView,
-  IUser,
-  TSignalTagId,
-  TSignalTextWeight,
-} from '../types'
+import { oneOf } from '../lib/guards'
+import { SIGNAL_TAG_IDS, SIGNAL_TEXT_WEIGHTS } from '../types'
+import type { ISignal, ISignalSegment, ISignalTag, ISignalView, IUser } from '../types'
 
 const API_DELAY_MS = 300
 
-const signalTagIds = [
-  'role-change',
-  'company-change',
-  'website-view',
-] as const satisfies readonly TSignalTagId[]
-const textWeights = ['bold', 'semibold'] as const satisfies readonly TSignalTextWeight[]
-
-function asTagId(id: string): TSignalTagId {
-  if ((signalTagIds as readonly string[]).includes(id)) return id as TSignalTagId
-  throw new Error(`Tag signal non valido: ${id}`)
-}
-
-function asTextWeight(weight: string): TSignalTextWeight {
-  if ((textWeights as readonly string[]).includes(weight)) return weight as TSignalTextWeight
-  throw new Error(`Peso testo non valido: ${weight}`)
-}
+const asTagId = oneOf(SIGNAL_TAG_IDS, 'Tag signal')
+const asTextWeight = oneOf(SIGNAL_TEXT_WEIGHTS, 'Peso testo')
 
 function toSegment(segment: (typeof signalsJson)[number]['segments'][number]): ISignalSegment {
   const parsed: ISignalSegment = { text: segment.text, weight: asTextWeight(segment.weight) }

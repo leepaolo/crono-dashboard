@@ -19,7 +19,13 @@ export type TTaskId =
   | "pending-auto"
   | "completed";
 
-export type TSignalTagId = "role-change" | "company-change" | "website-view";
+export const SIGNAL_TAG_IDS = [
+  "role-change",
+  "company-change",
+  "website-view",
+] as const;
+
+export type TSignalTagId = (typeof SIGNAL_TAG_IDS)[number];
 
 export type TMetricId =
   | "contacts"
@@ -29,7 +35,9 @@ export type TMetricId =
   | "deals"
   | "pipeline";
 
-export type TSignalTextWeight = "bold" | "semibold";
+export const SIGNAL_TEXT_WEIGHTS = ["bold", "semibold"] as const;
+
+export type TSignalTextWeight = (typeof SIGNAL_TEXT_WEIGHTS)[number];
 
 export interface ITaskStat {
   id: TTaskId;
